@@ -15,8 +15,8 @@ single-particle energy, making it impractical for use with wave function
 methods.
 
 In earlier work~\cite{henderson}, a method was outlined in which an
-energy-dependent self-energy is mapped to an energy-independent Complex
-Absorbing Potential (CAP), which, when added to the Hamiltonian, can be used
+energy-dependent self-energy is mapped to an energy-independent
+\ac{CAP}, which, when added to the Hamiltonian, can be used
 in a many-body treatment of the system. Here we present a continuation of that
 work, applying the method to a chain of atoms with interacting electrons.
 Different levels of correlation are explored by varying the threshold
@@ -60,7 +60,7 @@ calculated in the NEGF formalism using the TIMES~\cite{times} code. The
 objective is to model the peaks of this spectrum with Lorentzian curves for
 which the peak location and peak width are extracted from the real and
 imaginary parts, respectively, of the complex eigenvalues obtained by
-diagonalization of the Hamiltonian which includes a complex symmetric CAP.
+diagonalization of the Hamiltonian which includes a complex symmetric \ac{CAP}.
 
 \subsection{Complex Absorbing Potential}
 \label{subsec:CAP}
@@ -72,17 +72,17 @@ The CAP was constructed as follows (for a detailed description, see~
 
 \subsection{Complex Monte Carlo Configuration Interaction}
 
-The CI calculations were performed using a version of the Monte Carlo
-Configuration Interaction (MCCI) program, modified according to the orthogonal
-projection method outlined in~\cite{tarantelli_csd} to solve the complex
-symmetric generalized eigenvalue problem that results when a CAP is introduced
-into the Hamiltonian. To explore the effect of electron correlation on the
-shifts and broadenings, we ran calculations with different values of the
-threshold parameter $cmin$, which acts as a lower limit for the expansion
-coefficients of CSFs which are to be included in the final expansion. Only
-those CSFs which excited into or from states localized in the device (as
-opposed to the part of the leads which is included in the device region) were
-considered, since we wanted to explore only excitations of the actual device.
+The CI calculations were performed using a version of the \ac{MCCI} program,
+modified according to the orthogonal projection method outlined
+in~\cite{tarantelli_csd} to solve the complex symmetric generalized eigenvalue
+problem that results when a CAP is introduced into the Hamiltonian. To explore
+the effect of electron correlation on the shifts and broadenings, we ran
+calculations with different values of the threshold parameter $cmin$, which
+acts as a lower limit for the expansion coefficients of CSFs which are to be
+included in the final expansion. Only those CSFs which excited into or from
+states localized in the device (as opposed to the part of the leads which is
+included in the device region) were considered, since we wanted to explore
+only excitations of the actual device.
 
 \section{Results and Discussion}
 \label{sec:results}
