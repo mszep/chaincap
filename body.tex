@@ -1,10 +1,10 @@
 \section{Introduction}
 
-As technology ventures deeper into the nanoscale, accurate theoretical models
-of electronic bahavior at this scale become vital. For many cases, approaches
-which rely on approximate \ac{DFT} for electronic structure will suffice,
-however, in the case of moderate or strong electronic correlation, methods from
-the field of Quantum Chemistry become unavoidable.
+The standard theoretical model for studying molecular electronic systems
+consists of \ac{DFT} for obtaining electronic structure, and \ac{NEGF} for
+calculating transport properties. In this scheme, electron correlations are
+taken into account by inclusion of the exchange-correlation potential $V_{xc}$
+in the \ac{DFT} step.
 
 When treating systems connected to semi-infinite leads, further problems arise:
 device states can couple to the continuum and become complex resonances
@@ -99,15 +99,18 @@ broadened peaks according to
 
 \begin{equation}
 	f(\varepsilon;E_{res})
-	= \frac{\Gamma^2}{(\varepsilon - \operatorname{Re}(E_{res}))^2 + \Gamma^2}
+	= \frac{\frac{\Gamma}{2}^2}
+	       {(\varepsilon - \operatorname{Re}(E_{res}))^2
+	       + \frac{\Gamma}{2}^2}
 	\label{eq:lobro}
 \end{equation}
 
 where $\Gamma = 2 \times \operatorname{Im}(E_{res})$ is the broadening
-associated with the eigenvalue, and compare to a transmission spectrum of the
-device obtained using the self-energy in the \ac{NEGF} formalism. Such a
-comparison is shown in figure~\ref{fig:lobro-hwevals}, with good agreement
-between the two. (The agreement is also obtained outside the plotted range.)
+associated with the eigenvalue (i.e. the width of the Lorentzian peak), and
+compare to a transmission spectrum of the device obtained using the self-energy
+in the \ac{NEGF} formalism. Such a comparison is shown in
+figure~\ref{fig:lobro-hwevals}, with good agreement between the two. (The
+agreement is also obtained outside the plotted range.)
 
 \begin{figure}
 	\begin{center}
