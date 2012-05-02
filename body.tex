@@ -64,10 +64,46 @@ diagonalization of the Hamiltonian which includes a complex symmetric \ac{CAP}.
 \subsection{Complex Absorbing Potential}
 \label{subsec:CAP}
 
-The \ac{CAP} was constructed as follows (for a detailed description, see~
-\cite{henderson}):
+The procedure for construction of a \ac{CAP} is explained in detail
+in~\cite{henderson}; we briefly present the essential points here.
 
-[irene can explain this better?]
+The goal is to introduce a matrix \umm{W} which mimics the effect of coupling
+to a semi-infinite lead in a similar way as a complex self-energy
+\umm{\Sigma(E)}, but without the energy dependence. In order to achieve this,
+we construct \umm{W} such that, when added to the bare Hamiltonian $\um{H}_0$,
+it produces the same set of complex eigenvalues and eigenvectors as the
+Hamiltonian with \umm{\Sigma(E)} added.
+
+This is achieved by solving the related problem
+
+\begin{subequations}
+\begin{align}
+	[\um{H} + \lambda \um{\Sigma(\omega_i^\lambda)] \ket{\psi_i^\lambda}}
+	&= \omega_i^\lambda \ket{\psi_i^\lambda} \\
+	\bra{\varphi_i^\lambda} [\um{H} + \lambda \um{\Sigma(\omega_i^\lambda)}]
+	&= \omega_i^\lambda \bra{\varphi_i^\lambda} 
+	\label{eq:adiabaticap}
+\end{align}
+\end{subequations}
+
+for $\lambda$ gradually (adiabatically) increasing from 0 to 1. In this way, we
+go from the eigenenergies and eigenstates of $\um{H}_0$ at $\lambda = 0$ to
+those of $\um{H}_0 + \um{\Sigma(\omega_i)}$ at $\lambda = 1$.
+
+For the construction of the \ac{CAP}, since our many body code can only deal
+with real MO basis sets, we are forced to use the real eigenbasis of \umm{H}
+($\um{W}_0$ from \cite{henderson}), defining the \ac{CAP} to be
+
+\begin{equation}
+	\um{W} = \um{X}\um{\omega}\um{X}^\dagger - \um{H}_0
+	\label{eq:capsdef}
+\end{equation}
+
+where \umm{\omega} is a diagonal matrix with the complex value $\omega_i$ as
+its $i$th diagonal element.
+
+This projection introduces a small amount of inaccuracy, as will be discussed
+later.
 
 \subsection{Complex Monte Carlo Configuration Interaction}
 
