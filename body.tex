@@ -6,19 +6,25 @@ calculating transport properties. In this scheme, electron correlations are
 taken into account by inclusion of the exchange-correlation potential $V_{xc}$
 in the \ac{DFT} step.
 
-When treating systems connected to semi-infinite leads, further problems arise:
-device states can couple to the continuum and become complex resonances
-described by Siegert wave functions. Conventional approaches to the description
-of these systems model this coupling by inserting a complex self-energy term
-$\Sigma$ into the Hamiltonian. This term however contains a dependence on the
-single-particle energy, making it impractical for use with wave function
-methods.
+Recently, additional use of the GW approximatin has become common, in order to
+correct for the shifting of quasiparticle levels in the device due to coupling
+to, and applied bias on, the leads.
+
+Using electronic structure methods from the field of quantum chemistry, it is
+possible to incorporate electron correlations to an arbitrary degree, but
+modeling the effect of coupling to leads is problematic.
+
+In the conventional approaches, this coupling is modeled by inserting a complex
+self-energy term $\Sigma$ into the Hamiltonian. This term however contains a
+dependence on the single-particle energy, making it impractical for use with
+wave function methods.
 
 In earlier work~\cite{henderson}, a method was outlined in which an
 energy-dependent self-energy is mapped to an energy-independent
 \ac{CAP}, which, when added to the Hamiltonian, can be used
-in a many-body treatment of the system. Here we present a continuation of that
-work, applying the method to a chain of atoms with interacting electrons.
+in a many-body treatment of the system. Here, we present a continuation of that
+work, applying the method to a chain of atoms with interacting electrons, and
+using a complex \ac{CI} scheme for the calculation of electronic structure.
 Different levels of correlation are explored by varying the threshold
 parameter for \acp{CSF} in the \ac{CI} calculation.
 
