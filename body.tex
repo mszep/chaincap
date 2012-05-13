@@ -117,14 +117,23 @@ later.
 The \ac{CI} calculations were performed using a version of the \ac{MCCI}
 program, modified according to the orthogonal projection method outlined
 in~\cite{tarantelli_csd} to solve the complex symmetric generalized eigenvalue
-problem that results when a \ac{CAP} is introduced into the Hamiltonian. To
-explore the effect of electron correlation on the shifts and broadenings, we
-ran calculations with different values of the threshold parameter $cmin$, which
-acts as a lower limit for the expansion coefficients of \acp{CSF} which are to
-be included in the final expansion. Only those \acp{CSF} which excited into or
-from states localized in the device (as opposed to the part of the leads which
-is included in the device region) were considered, since we wanted to explore
-only excitations of the actual device.
+problem that results when a \ac{CAP} is introduced into the Hamiltonian. The
+\ac{MCCI} program computes energy estimates by an iterative process: starting
+from a set of \acp{CSF} (which may be a lone Slater Determinant), a set of
+\acp{CSF} are created which consist of single and double excitations from the
+starting \ac{CSF} set. These sets are then joined, and the Schr\"odinger
+equation is constructed and solved in the corresponding \ac{CI} subspace. Then
+follows a pruning step, in which those \acp{CSF} which have a coefficient in
+the relevant eigenvector of the Hamiltonian lower (in magnitude) than a given
+threshold value $cmin$ are deleted, after which the process is repeated until
+convergence is reached.
+
+To explore the effect of electron correlation on the shifts and broadenings, we
+ran calculations with different values of the threshold parameter $cmin$.
+% Only those \acp{CSF} which excited into or from states localized in the device
+% (as opposed to the part of the leads which is included in the device region)
+% were considered, since we wanted to explore only excitations of the actual
+% device.
 
 \section{Results and Discussion}
 \label{sec:results}
