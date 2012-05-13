@@ -4,20 +4,21 @@ The standard theoretical model for studying molecular electronic systems
 consists of \ac{DFT} for obtaining electronic structure, and \ac{NEGF} for
 calculating transport properties. In this scheme, electron correlations are
 taken into account by inclusion of the exchange-correlation potential $V_{xc}$
-in the \ac{DFT} step.
+in the \ac{DFT} Hamiltonian, and device-lead coupling is included using an
+energy-dependent ``Self-Energy'' term $\Sigma(E)$.
 
 Recently, additional use of the GW approximation has become common, in order to
 correct for the shifting of quasiparticle levels in the device due to coupling
-to, and applied bias on, the leads.
+to, and applied bias on, the leads. It has been shown [cite Neaton, Thygesen]
+that this approach corrects significantly the characteristic over-estimation by
+\ac{DFT}-based methods of zero-bias conductance and finite bias currents
+compared to experimental results.
 
-Using electronic structure methods from the field of quantum chemistry, it is
-possible to incorporate electron correlations to an arbitrary degree, but
-modeling the effect of coupling to leads is problematic.
-
-In the conventional approaches, this coupling is modeled by inserting a complex
-self-energy term $\Sigma$ into the Hamiltonian. This term however contains a
-dependence on the single-particle energy, making it impractical for use with
-wave function methods.
+A a different approach, methods from the field of quantum chemistry, with which
+it is possible to incorporate electron correlations to an arbitrary degree are
+used \cite{delaney} but in those cases, modeling the effect of coupling to leads
+is problematic. Including an energy-dependent potential term in the Hamiltonian
+is possible in principle, but not feasible in practice.[citation?]
 
 In earlier work~\cite{henderson}, a method was outlined in which an
 energy-dependent self-energy is mapped to an energy-independent
