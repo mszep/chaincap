@@ -146,18 +146,18 @@ the \ac{CAP} as generated according to the description of
 section~\ref{subsec:CAP} gives the correct complex single-particle eigenvalues,
 i.e. whether the selected self-consistent solutions of the Dyson equation
 provide an accurate picture of the resonances in the device region. To this
-end, we convert the complex eigenvalues of $\um{H} + \um{W}$ to Lorentzian
-broadened peaks according to
+end, we convert the complex eigenvalues $\omega_i$ of $\um{H} + \um{W}$ to
+Lorentzian broadened peaks according to
 
 \begin{equation}
-	f(\varepsilon;E_{res})
+	f(\varepsilon;\omega_i)
 	= \frac{\frac{\Gamma}{2}^2}
-	       {(\varepsilon - \operatorname{Re}(E_{res}))^2
+	       {(\varepsilon - \operatorname{Re}(\omega_i))^2
 	       + \frac{\Gamma}{2}^2}
 	\label{eq:lobro}
 \end{equation}
 
-where $\Gamma = 2 \times \operatorname{Im}(E_{res})$ is the broadening
+where $\Gamma = 2 \times \operatorname{Im}(\omega_i)$ is the broadening
 associated with the eigenvalue (i.e. the width of the Lorentzian peak), and
 compare to a transmission spectrum of the device obtained using the self-energy
 in the \ac{NEGF} formalism. Such a comparison is shown in
