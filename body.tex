@@ -1,11 +1,11 @@
 \section{Introduction}
 
 The standard theoretical model for studying molecular electronic systems
-consists of \ac{DFT} for obtaining electronic structure, and \ac{NEGF} for
-calculating transport properties. In this scheme, electron correlations are
-taken into account by inclusion of the exchange-correlation potential $V_{xc}$
-in the \ac{DFT} Hamiltonian, and device-lead coupling is included using an
-energy-dependent ``Self-Energy'' term $\Sigma(E)$.
+consists of \ac{DFT} for obtaining electronic structure, and the \ac{NEGF}
+formalism for calculating transport properties. In this scheme, electron
+correlations are taken into account by inclusion of the exchange-correlation
+potential $V_{xc}$ in the Kohn-Sham Hamiltonian, and device-lead coupling is
+included using an energy-dependent ``Self-Energy'' term $\Sigma(E)$.
 
 Recently, additional use of the GW approximation has become common, in order to
 correct for the shifting of quasiparticle levels in the device due to coupling
@@ -44,7 +44,7 @@ section~\ref{sec:conclusions} contains conclusions and further perspectives.
 \label{subsec:modelsystem}
 
 The system we studied consists of a simple atomic chain with interatomic
-separation of 0.28 nm (?), intended to mirror the system studied experimentally
+separation of 0.28 nm, intended to mirror the system studied experimentally
 in~\cite{nilius2002science} (See figure~\ref{fig:chaincapdevice}). Two interatomic
 spacings are made larger than the others, to delineate a ``device'' between two
 leads. This spacing determines the degree to which the device states couple to
@@ -121,7 +121,7 @@ problem that results when a \ac{CAP} is introduced into the Hamiltonian. The
 \ac{MCCI} program computes energy estimates by an iterative process: starting
 from a set of \acp{CSF} (which may be a lone Slater Determinant), a set of
 \acp{CSF} are created which consist of single and double excitations from the
-starting \ac{CSF} set. These sets are then joined, and the Schr\"odinger
+current \ac{CSF} set. These sets are then joined, and the Schr\"odinger
 equation is constructed and solved in the corresponding \ac{CI} subspace. Then
 follows a pruning step, in which those \acp{CSF} which have a coefficient in
 the relevant eigenvector of the Hamiltonian lower (in magnitude) than a given
@@ -135,6 +135,23 @@ ran calculations with different values of the threshold parameter $cmin$.
 % were considered, since we wanted to explore only excitations of the actual
 % device.
 
+\subsection{Complex Quasiparticle Energies}
+
+We evaluate quasiparticle energies as differences of complex many-body energies
+that result from the \ac{CI} problem, as discussed above. In order to compare
+to transmission spectra from the single-particle picture, we construct
+Lorentzian peaks from the complex energies $\omega_i$ according to
+
+\begin{equation}
+	f(\varepsilon;\omega_i)
+	= \frac{\frac{\Gamma}{2}^2}
+	       {(\varepsilon - \operatorname{Re}(\omega_i))^2
+	       + \frac{\Gamma}{2}^2}
+	\label{eq:lobro}
+\end{equation}
+
+where $\Gamma = 2 \times \operatorname{Im}(\omega_i)$ is the broadening
+associated with the eigenvalue (i.e. the width of the Lorentzian peak).
 
 \section{Results and Discussion}
 \label{sec:results}
@@ -146,22 +163,10 @@ As a validation of the \ac{CAP} approach, we would first like to see whether
 the \ac{CAP} as generated according to the description of
 section~\ref{subsec:CAP} gives the correct complex single-particle eigenvalues,
 i.e. whether the selected self-consistent solutions of the Dyson equation
-provide an accurate picture of the resonances in the device region. To this
-end, we convert the complex eigenvalues $\omega_i$ of $\um{H} + \um{W}$ to
-Lorentzian broadened peaks according to
-
-\begin{equation}
-	f(\varepsilon;\omega_i)
-	= \frac{\frac{\Gamma}{2}^2}
-	       {(\varepsilon - \operatorname{Re}(\omega_i))^2
-	       + \frac{\Gamma}{2}^2}
-	\label{eq:lobro}
-\end{equation}
-
-where $\Gamma = 2 \times \operatorname{Im}(\omega_i)$ is the broadening
-associated with the eigenvalue (i.e. the width of the Lorentzian peak), and
-compare to a transmission spectrum of the device obtained using the self-energy
-in the \ac{NEGF} formalism. Such a comparison is shown in
+provide an accurate picture of the resonances in the device region. To do this,
+we construct Lorentzian peaks from the eigenvalues, and compare to a
+transmission spectrum of the device obtained using the self-energy in the
+\ac{NEGF} formalism. Such a comparison is shown in
 figure~\ref{fig:lobro-hwevals}, with good agreement between the two. (The
 agreement is also obtained outside the plotted range.)
 
@@ -188,12 +193,20 @@ by vertical blue lines in fig.~\ref{fig:lobro-hwevals}.
 \label{subsec:SingleDeterminant}
 
 The next step is to pass to the many-body picture, initially representing the
-wave function of the $N$ electron system as a single Slater determinant. The
+many-body wave function of the system as a single Slater determinant. The
 quasiparticle peaks in the transmission spectrum are approximated by taking
 differences of many-body energies: $E^N - E^{N-1}$ yields the \ac{HOMO}, while
 likewise $E^{N+1} - E^N$ yields the \ac{LUMO} (other quasiparticle levels can be
 obtained by taking differences of excited many-body energies). The peaks for
-the \ac{HOMO} and \ac{LUMO} of the system obtained in this way are plotted in figure
+the \ac{HOMO} and \ac{LUMO} of the system obtained in this way are plotted in
+figure~\ref{fig:cipeaks}. There is good correspondence in the position of the
+peaks, but the single determinant difference peaks are significantly broader
+than their transmission spectrum counterparts. The only difference with the
+single-particle eigenvalue picture previously shown is that now we have
+projected the eigenvectors into the $\um{X}$ basis (eigenbasis of $\um{H}_0$)
+instead of representing them in their natural basis $\um{U}$ (left eigenbasis
+of $\um{H}_0 + \um{W}$). The reason for this is that our \ac{CI} code is
+constrained to work with a real basis of MOs.
 
 \subsection{Single Excitations}
 \label{subsec:singles}
@@ -209,21 +222,44 @@ figure~\ref{fig:cipeaks}.
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.9\linewidth]{figures/ci_4.5A_homo.eps}
+		\includegraphics[width=0.9\linewidth]{figures/ci_4.5A_lumo.eps}
 	\end{center}
-	\caption{}
+	\caption{(Top): Transmission data (red) and Lorentzian peaks (green,
+	light blue, and purple) for various types of many-body energy
+	differences for the HOMO of the 0.45 nm separated system. (Bottom):
+	same as above, but for the LUMO.}
 	\label{fig:cipeaks}
 \end{figure}
 
-Finally, we start adding correlation:
+\subsection{Complex \ac{CI}}
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.9\linewidth]{figures/cidevice_4.5A_homo.eps}
+		\includegraphics[width=0.9\linewidth]{figures/cidevice_4.5A_lumo.eps}
 	\end{center}
-	\caption{}
+	\caption{Same as figure~\ref{fig:cipeaks}, but with the \ac{CI} constrained
+	to the molecular region.}
 	\label{fig:cipeaks-device}
 \end{figure}
 
+Finally, we start adding correlation (the blue and yellow curves in figs
+\ref{fig:cipeaks} and \ref{fig:cipeaks-device}).
+
+\subsection{Stronger Coupling}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.9\linewidth]{figures/cidevice_4.0A_homo.eps}
+		\includegraphics[width=0.9\linewidth]{figures/cidevice_4.0A_lumo.eps}
+	\end{center}
+	\caption{Same as figure~\ref{fig:cipeaks-device}, but for the 0.4 nm separated
+	system.}
+	\label{fig:cipeaks-device-strongcoupling}
+\end{figure}
+
+
 \section{Conclusions}
+
 \label{sec:conclusions}
 
