@@ -1,8 +1,24 @@
 \section{Introduction}
 
+Atomic chains form one of the prototypical systems in the study of molecular
+electronic systems. They can be fabricated on inert
+surfaces~\cite{nilius2002science, segovia1999nature} or in mechanically
+controlled break junctions \cite{vanruitenbeek1998mcbj} and are of interest as
+potential electronic interconnects, but also because their highly nonclassical
+behaviour allows the various theoretical approaches to the one-dimensional
+quantum transport problem to be compared with experiment.
+
+Early theoretical approaches to the problem of the conductance of molecular
+chains were based on a tight-binding formalism, combined with
+Landauer-B\"uttiker theory for transport
+\cite{emberlykirczenow1999standingwave, emberlykirczenow2000molecularwire}.
+
 The standard theoretical model for studying molecular electronic systems
 consists of \ac{DFT} for obtaining electronic structure, and the \ac{NEGF}
-formalism for calculating transport properties. In this scheme, electron
+formalism for calculating transport properties. However, while certain systems
+are adequately described by this scheme, for others
+
+In this scheme, electron
 correlations are taken into account by inclusion of the exchange-correlation
 potential $V_{xc}$ in the Kohn-Sham Hamiltonian, and device-lead coupling is
 included using an energy-dependent ``Self-Energy'' term $\Sigma(E)$.
@@ -71,38 +87,39 @@ diagonalization of the Hamiltonian which includes a complex symmetric \ac{CAP}.
 \subsection{Complex Absorbing Potential}
 \label{subsec:CAP}
 
-The procedure for construction of a \ac{CAP} is explained in detail
-in~\cite{henderson}; we briefly present the essential points here.
+The procedure for construction of an energy-independent \ac{CAP} from the
+energy-dependant self-energy is discussed in detail in~\cite{henderson}. We
+briefly present the essential points here.
 
-The goal is to introduce a matrix \umm{W} which mimics the effect of coupling
-to a semi-infinite lead in a similar way as a complex self-energy
-\umm{\Sigma(E)}, but without the energy dependence. In order to achieve this,
-we construct \umm{W} such that, when added to the bare Hamiltonian $\um{H}_0$,
-it produces the same set of complex eigenvalues and eigenvectors as the
-Hamiltonian with \umm{\Sigma(E)} added.
-
-This is achieved by solving the related problem
+The initial Hamiltonian $\um{H}_0$ , with eigenvalues $\varepsilon_i$ and
+eigenvectors $\ket{X}_i$, is that of a single unit cell of the semi-infinite
+lead. Its self-energy is calculated using the TIMES code~\cite{times}. The
+self-energy is adiabatically added to the Hermitian Hamiltonian $\um{H}_0$
+leading to the following Dyson equations:
 
 \begin{subequations}
 \begin{align}
 	[\um{H} + \lambda \um{\Sigma}(\omega_i^\lambda)] \ket{\psi_i^\lambda}
-	&= \omega_i^\lambda \ket{\psi_i^\lambda} \\
+	&= \omega_i^\lambda \um{S}_0 \ket{\psi_i^\lambda} \\
 	\bra{\varphi_i^\lambda} [\um{H} + \lambda \um{\Sigma}(\omega_i^\lambda)]
-	&= \omega_i^\lambda \bra{\varphi_i^\lambda} 
+	&= \omega_i^\lambda \um{S}_0 \bra{\varphi_i^\lambda} 
 	\label{eq:adiabaticap}
 \end{align}
 \end{subequations}
 
-for $\lambda$ gradually (adiabatically) increasing from 0 to 1. In this way, we
-go from the eigenenergies and eigenstates of $\um{H}_0$ at $\lambda = 0$ to
-those of $\um{H}_0 + \um{\Sigma(\omega_i)}$ at $\lambda = 1$.
+% The real part of $\omega_i$ gives the position of the $i$th resonance including
+% the shift from the initial eigenvalue $\varepsilon_i$, the imaginary part gives
+% the level broadening.
+The adiabatic coupling is achieved by varying $\lambda$. At $\lambda = 0$ we
+have the initial states $\ket{X}$ and eigenvalues $\varepsilon$, while at
+$\lambda = 1$ we have the target states and energy levels.
 
 For the construction of the \ac{CAP}, since our many body code can only deal
 with real MO basis sets, we are forced to use the real eigenbasis of \umm{H}
 ($\um{W}_0$ from \cite{henderson}), defining the \ac{CAP} to be
 
 \begin{equation}
-	\um{W} = \um{X}\um{\omega}\um{X}^\dagger - \um{H}_0
+	\um{W} = \um{S}\um{X}\um{\omega}\um{X}^\dagger - \um{H}_0
 	\label{eq:capsdef}
 \end{equation}
 
@@ -112,24 +129,74 @@ its $i$th diagonal element.
 This projection introduces a small amount of inaccuracy, as will be discussed
 later.
 
+We calculate the transmission through the device region via
+
+\begin{equation}
+	T(E) = \mathbf{tr}(\Lambda_L G \Lambda_R G^\dagger)	
+	\label{eq:transmission}
+\end{equation}
+
+Where generally in the definition of the Green's function, $G$ and spectral
+densities, $\Lambda_{L(R)}$ self-energy is used, we replace this with W.
+
+\begin{subequations}
+\begin{align}
+	G &= [E\um{S}_0 - (\um{H}_0 + \um{W})] \\
+	\Lambda_{L(R)} &= i \left( \um{W}_{L,(R)}
+	                  - \um{W}^\dagger_{L(R)} \right)
+\end{align}
+\label{eq:glambdadef}
+\end{subequations}
+
+We then analyse the obtained transmission against that using the NEGF formalism
+employed within the TIMES code. This comparison is shown in figure [TODO],
+showing the extent of agreement between the two approaches. We note the good
+agreement between the two approaches especially in the energy frame of
+interest, \textit{i.e.} around the \ac{HOMO}-\ac{LUMO} gap.
+
+% The goal is to introduce a matrix \umm{W} which mimics the effect of coupling
+% to a semi-infinite lead in a similar way as a complex self-energy
+% \umm{\Sigma(E)}, but without the energy dependence. In order to achieve this,
+% we construct \umm{W} such that, when added to the bare Hamiltonian $\um{H}_0$,
+% it produces the same set of complex eigenvalues and eigenvectors as the
+% Hamiltonian with \umm{\Sigma(E)} added.
+% 
+% This is achieved by solving the related problem
+% 
+% \begin{subequations}
+% \begin{align}
+% 	[\um{H} + \lambda \um{\Sigma}(\omega_i^\lambda)] \ket{\psi_i^\lambda}
+% 	&= \omega_i^\lambda \ket{\psi_i^\lambda} \\
+% 	\bra{\varphi_i^\lambda} [\um{H} + \lambda \um{\Sigma}(\omega_i^\lambda)]
+% 	&= \omega_i^\lambda \bra{\varphi_i^\lambda} 
+% 	\label{eq:adiabaticap}
+% \end{align}
+% \end{subequations}
+% 
+% for $\lambda$ gradually (adiabatically) increasing from 0 to 1. In this way, we
+% go from the eigenenergies and eigenstates of $\um{H}_0$ at $\lambda = 0$ to
+% those of $\um{H}_0 + \um{\Sigma(\omega_i)}$ at $\lambda = 1$.
+
+
 \subsection{Complex Monte Carlo Configuration Interaction}
 
 The \ac{CI} calculations were performed using a version of the \ac{MCCI}
-program, modified according to the orthogonal projection method outlined
-in~\cite{tarantelli_csd} to solve the complex symmetric generalized eigenvalue
-problem that results when a \ac{CAP} is introduced into the Hamiltonian. The
-\ac{MCCI} program computes energy estimates by an iterative process: starting
-from a set of \acp{CSF} (which may be a lone Slater Determinant), a set of
-\acp{CSF} are created which consist of single and double excitations from the
-current \ac{CSF} set. These sets are then joined, and the Schr\"odinger
-equation is constructed and solved in the corresponding \ac{CI} subspace. Then
-follows a pruning step, in which those \acp{CSF} which have a coefficient in
-the relevant eigenvector of the Hamiltonian lower (in magnitude) than a given
-threshold value $cmin$ are deleted, after which the process is repeated until
-convergence is reached.
+program~\cite{mcci1998, mcci2000} modified according to the orthogonal
+projection method outlined in~\cite{tarantelli_csd} to solve the complex
+symmetric generalized eigenvalue problem that results when a \ac{CAP} is
+introduced into the Hamiltonian. The \ac{MCCI} program computes energy
+estimates by an iterative process: starting from a set of \acp{CSF} (which may
+be a lone Slater Determinant), a set of \acp{CSF} are created which consist of
+single and double excitations from the \acp{CSF} in the current set. These sets
+are then joined, and the Schr\"odinger equation is constructed and solved in
+the corresponding \ac{CI} subspace. Then follows a pruning step, in which those
+\acp{CSF} which have a coefficient in the relevant eigenvector of the
+Hamiltonian lower (in magnitude) than a given threshold value $cmin$ are
+deleted, after which the process is repeated until convergence is reached.
 
-To explore the effect of electron correlation on the shifts and broadenings, we
-ran calculations with different values of the threshold parameter $cmin$.
+To explore the effect of electron correlation on the shifts and broadenings,
+lower values of the threshold parameter $cmin$ can be chosen, admitting more
+\acp{CSF} to the final solution.
 % Only those \acp{CSF} which excited into or from states localized in the device
 % (as opposed to the part of the leads which is included in the device region)
 % were considered, since we wanted to explore only excitations of the actual
@@ -144,9 +211,9 @@ Lorentzian peaks from the complex energies $\omega_i$ according to
 
 \begin{equation}
 	f(\varepsilon;\omega_i)
-	= \frac{\frac{\Gamma}{2}^2}
+	= \frac{\left( \frac{\Gamma}{2} \right)^2}
 	       {(\varepsilon - \operatorname{Re}(\omega_i))^2
-	       + \frac{\Gamma}{2}^2}
+	       + \left( \frac{\Gamma}{2} \right)^2}
 	\label{eq:lobro}
 \end{equation}
 
@@ -162,20 +229,21 @@ associated with the eigenvalue (i.e. the width of the Lorentzian peak).
 As a validation of the \ac{CAP} approach, we would first like to see whether
 the \ac{CAP} as generated according to the description of
 section~\ref{subsec:CAP} gives the correct complex single-particle eigenvalues,
-i.e. whether the selected self-consistent solutions of the Dyson equation
-provide an accurate picture of the resonances in the device region. To do this,
-we construct Lorentzian peaks from the eigenvalues, and compare to a
-transmission spectrum of the device obtained using the self-energy in the
-\ac{NEGF} formalism. Such a comparison is shown in
-figure~\ref{fig:lobro-hwevals}, with good agreement between the two. (The
-agreement is also obtained outside the plotted range.)
+i.e. whether the selected self-consistent solutions of the Dyson
+equations~\ref{eq:adiabaticap} provide an accurate picture of the resonances
+in the device region. To do this, we construct Lorentzian peaks from the
+eigenvalues, and compare to a transmission spectrum of the device obtained
+using the self-energy in the \ac{NEGF} formalism. Such a comparison is shown in
+figure~\ref{fig:4evals}.
 
 This is a case of weak coupling, as can be seen by the narrowness of the
 transmission peaks, and by the fact that they are not significantly shifted
 from the real-valued Hartree-Fock single-particle levels, which are indicated
-by vertical blue lines in fig.~\ref{fig:lobro-hwevals}. 
+by vertical blue lines. The agreement between the Green function transmission
+(red) and the peaks derived from the eigenvalues of $\um{H}_0 + \um{W}$ (green)
+is excellent, both in terms of position (real part) and width (imaginary part).
 
-\begin{figure}
+\begin{figure} 
 	\begin{center}
 		\includegraphics[width=0.9\linewidth]{figures/4evals}
 	\end{center}
@@ -186,7 +254,7 @@ by vertical blue lines in fig.~\ref{fig:lobro-hwevals}.
 	\ac{NEGF} calculations with the TIMES program~\cite{times}.
         Blue vertical lines indicate the single-particle levels of the device
         in the Hartree-Fock approximation.}
-	\label{fig:lobro-hwevals}
+	\label{fig:4evals}
 \end{figure}
 
 \subsection{Single Determinant}
@@ -199,14 +267,25 @@ differences of many-body energies: $E^N - E^{N-1}$ yields the \ac{HOMO}, while
 likewise $E^{N+1} - E^N$ yields the \ac{LUMO} (other quasiparticle levels can be
 obtained by taking differences of excited many-body energies). The peaks for
 the \ac{HOMO} and \ac{LUMO} of the system obtained in this way are plotted in
-figure~\ref{fig:cipeaks}. There is good correspondence in the position of the
+figure~\ref{fig:nobranch45A}. There is good correspondence in the position of the
 peaks, but the single determinant difference peaks are significantly broader
 than their transmission spectrum counterparts. The only difference with the
-single-particle eigenvalue picture previously shown is that now we have
-projected the eigenvectors into the $\um{X}$ basis (eigenbasis of $\um{H}_0$)
-instead of representing them in their natural basis $\um{U}$ (left eigenbasis
-of $\um{H}_0 + \um{W}$). The reason for this is that our \ac{CI} code is
-constrained to work with a real basis of MOs.
+single-particle eigenvalue picture previously shown is that now, as mentioned
+earlier, we have projected the eigenvectors into the $\um{X}$ basis (eigenbasis
+of $\um{H}_0$) instead of representing them in their natural basis $\um{U}$
+(left eigenbasis of $\um{H}_0 + \um{W}$).
+% The reason for this is that our \ac{CI} code is constrained to work with a real
+% basis of MOs.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.9\linewidth]{figures/nobranch45A.eps}
+	\end{center}
+	\caption{Comparison of the transmission from Green functions (red) to
+	         the Lorentzian peaks obtained by subtracting
+		 single-determinant many-body energies (green).}
+	\label{fig:nobranch45A}
+\end{figure}
 
 \subsection{Single Excitations}
 \label{subsec:singles}
@@ -222,7 +301,9 @@ figure~\ref{fig:cipeaks}.
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.9\linewidth]{figures/ci_4.5A_homo.eps}
+		\includegraphics[width=0.9\linewidth]{figures/leaddos_homo.eps}
 		\includegraphics[width=0.9\linewidth]{figures/ci_4.5A_lumo.eps}
+		\includegraphics[width=0.9\linewidth]{figures/leaddos_lumo.eps}
 	\end{center}
 	\caption{(Top): Transmission data (red) and Lorentzian peaks (green,
 	light blue, and purple) for various types of many-body energy
@@ -236,7 +317,9 @@ figure~\ref{fig:cipeaks}.
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.9\linewidth]{figures/cidevice_4.5A_homo.eps}
+		\includegraphics[width=0.9\linewidth]{figures/leaddos_homo.eps}
 		\includegraphics[width=0.9\linewidth]{figures/cidevice_4.5A_lumo.eps}
+		\includegraphics[width=0.9\linewidth]{figures/leaddos_lumo.eps}
 	\end{center}
 	\caption{Same as figure~\ref{fig:cipeaks}, but with the \ac{CI} constrained
 	to the molecular region.}
@@ -251,7 +334,9 @@ Finally, we start adding correlation (the blue and yellow curves in figs
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.9\linewidth]{figures/cidevice_4.0A_homo.eps}
+		\includegraphics[width=0.9\linewidth]{figures/leaddos_homo.eps}
 		\includegraphics[width=0.9\linewidth]{figures/cidevice_4.0A_lumo.eps}
+		\includegraphics[width=0.9\linewidth]{figures/leaddos_lumo.eps}
 	\end{center}
 	\caption{Same as figure~\ref{fig:cipeaks-device}, but for the 0.4 nm separated
 	system.}
