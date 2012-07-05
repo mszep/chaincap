@@ -12,29 +12,25 @@ Early theoretical approaches to the problem of the conductance of molecular
 chains were based on a tight-binding formalism, combined with
 Landauer-B\"uttiker theory for transport
 \cite{emberlykirczenow1999standingwave, emberlykirczenow2000molecularwire}.
+Later on, \ac{DFT}-based methods gained prominence, with conductance
+characteristics either inferred from the Friedel sum
+rule~\cite{sim2001sodiumwire}, or calculated using the \ac{NEGF}
+\cite{meirwingreen1992negf} formalism~\cite{leepuska2004monovalent,
+thygesen2003aluminium}. More recently, the GW approximation~\cite{hedin1965gw}
+has been introduced as a way of correcting the Kohn-Sham single particle
+energies to more closely correspond to the actual quasiparticle energies of the
+system~\cite{thygesen_rubio, thygesenrubio2010corr}. Using this formalism,
+transport calculations on molecular junctions have been able to achieve
+semi-quantitative levels of accuracy~\cite{strange2011benzene,
+strange2011alkane}.
 
-The standard theoretical model for studying molecular electronic systems
-consists of \ac{DFT} for obtaining electronic structure, and the \ac{NEGF}
-formalism for calculating transport properties. However, while certain systems
-are adequately described by this scheme, for others
-
-In this scheme, electron
-correlations are taken into account by inclusion of the exchange-correlation
-potential $V_{xc}$ in the Kohn-Sham Hamiltonian, and device-lead coupling is
-included using an energy-dependent ``Self-Energy'' term $\Sigma(E)$.
-
-Recently, additional use of the GW approximation has become common, in order to
-correct for the shifting of quasiparticle levels in the device due to coupling
-to, and applied bias on, the leads. It has been shown [cite Neaton, Thygesen]
-that this approach corrects significantly the characteristic over-estimation by
-\ac{DFT}-based methods of zero-bias conductance and finite bias currents
-compared to experimental results.
-
-In a different approach, methods from the field of quantum chemistry, with
-which it is possible to incorporate electron correlations to an arbitrary
-degree can  used \cite{vici2004} but in those cases, modeling the effect of
-coupling to leads is problematic. Including an energy-dependent potential term
-in the Hamiltonian is possible in principle, but not feasible in practice.
+However, moethods based on \ac{DFT} + \ac{NEGF} are not the only option for
+studying molecular electronic devices. In a different approach, methods from
+the field of quantum chemistry, with which it is possible to incorporate
+electron correlations to an arbitrary degree can  used \cite{vici2004} but in
+those cases, modeling the effect of coupling to leads is problematic. Including
+an energy-dependent potential term in the Hamiltonian is possible in principle,
+but not feasible in practice.
 
 In earlier work~\cite{henderson}, a method was outlined in which an
 energy-dependent self-energy is mapped to an energy-independent
@@ -279,69 +275,102 @@ of $\um{H}_0$) instead of representing them in their natural basis $\um{U}$
 
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[width=0.9\linewidth]{figures/nobranch45A.eps}
+		\includegraphics[width=0.9\linewidth]{figures/nobrsingles45A.eps}
 	\end{center}
-	\caption{Comparison of the transmission from Green functions (red) to
+	\caption{4.5A system: Comparison of the transmission from Green functions (red) to
 	         the Lorentzian peaks obtained by subtracting
 		 single-determinant many-body energies (green).}
 	\label{fig:nobranch45A}
+\end{figure}
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.9\linewidth]{figures/nobrsingles40A.eps}
+	\end{center}
+	\caption{4.0A system: Comparison of the transmission from Green functions (red) to
+		 the Lorentzian peaks obtained by subtracting
+		 single-determinant many-body energies (green).}
+	\label{fig:nobranch40A}
 \end{figure}
 
 \subsection{Single Excitations}
 \label{subsec:singles}
 
 The next step is to include, for each state, the reference determinant plus all
-its single excitations. By Thouless' theorem~\cite{Thouless}, the wave function
-obtained in this way would still be describable as a single determinant (and
+its single excitations. By Thouless' theorem~\cite{Thouless}, to first order in
+the non-reference \acp{CSF}, the wave function obtained by diagonalizing in
+this space would still be describable as a single determinant (and
 thus, by definition, contain no correlation), but by adding degrees of freedom
 to the system, a degree of self-consistency is attained. The results for the
 \ac{HOMO} and \ac{LUMO} quasiparticle levels are plotted in
-figure~\ref{fig:cipeaks}.
+figure~\ref{fig:cipeaks45A}.
 
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=0.9\linewidth]{figures/ci_4.5A_homo.eps}
-		\includegraphics[width=0.9\linewidth]{figures/leaddos_homo.eps}
-		\includegraphics[width=0.9\linewidth]{figures/ci_4.5A_lumo.eps}
-		\includegraphics[width=0.9\linewidth]{figures/leaddos_lumo.eps}
-	\end{center}
-	\caption{(Top): Transmission data (red) and Lorentzian peaks (green,
-	light blue, and purple) for various types of many-body energy
-	differences for the HOMO of the 0.45 nm separated system. (Bottom):
-	same as above, but for the LUMO.}
-	\label{fig:cipeaks}
-\end{figure}
+At this point, it is useful to compare the error in the two cases discussed
+thus far. To relate the many-body energies to the single-particle levels, we
+start by considering the following equation for the total energy of the system
+(which we assume to be closed-shell) in terms of complex single-particle
+energies
+
+\begin{equation}
+	E = \sum_i \omega_i - \frac{1}{2} \sum_{i,j} g_{ij}
+	\label{eq:sptotalenergy}
+\end{equation}
+
+which reflects the fact that when summing the single particle energies, the
+two-body terms are counted twice and must be subtracted out to obtian the total
+energy. On the other hand, from the many-body point of view, we have
+
+\begin{equation}
+	E_{mb} = \sum_i h_i + \frac{1}{2} \sum_{i,j} g_{ij}.
+	\label{eq:mbtotalenergy}
+\end{equation}
+
+It follows that
+
+\begin{equation}
+	\sum_i \omega_i = E_{mb} + \frac{1}{2} \sum_{i,j} g_{ij}.
+	\label{eq:eesumcomparison}
+\end{equation}
+
+In other words, we can compare the obtained many body energies in both the
+single determinant and single excitations cases, and determine whether the
+additional degrees of freedom are able to compensate the error inherent in the
+basis conversion. Such comparisons are meaningful since the single excitations
+vector contains no correlation energy, but that would not be the case in a more
+extensive \ac{CI} scheme. Table \ref{tab:eesum} contains the comparisons for
+the 0.45 nm system with 68 electrons.
+
+\begin{table}
+	\centering
+	\begin{tabular}{c c c}
+		bla & blo \\
+		bli & blu
+	\end{tabular}
+	\caption{bbbbl}
+	\label{tab:eesum}
+\end{table}
+
 
 \subsection{Complex \ac{CI}}
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.9\linewidth]{figures/cidevice_4.5A_homo.eps}
-		\includegraphics[width=0.9\linewidth]{figures/leaddos_homo.eps}
-		\includegraphics[width=0.9\linewidth]{figures/cidevice_4.5A_lumo.eps}
-		\includegraphics[width=0.9\linewidth]{figures/leaddos_lumo.eps}
+		\includegraphics[width=0.9\linewidth]{figures/ci45A.eps}
 	\end{center}
-	\caption{Same as figure~\ref{fig:cipeaks}, but with the \ac{CI} constrained
-	to the molecular region.}
-	\label{fig:cipeaks-device}
+	\caption{CI for the 4.5A system}
+	\label{fig:cipeaks45A}
 \end{figure}
 
-Finally, we start adding correlation (the blue and yellow curves in figs
-\ref{fig:cipeaks} and \ref{fig:cipeaks-device}).
-
-\subsection{Stronger Coupling}
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.9\linewidth]{figures/cidevice_4.0A_homo.eps}
-		\includegraphics[width=0.9\linewidth]{figures/leaddos_homo.eps}
-		\includegraphics[width=0.9\linewidth]{figures/cidevice_4.0A_lumo.eps}
-		\includegraphics[width=0.9\linewidth]{figures/leaddos_lumo.eps}
+		\includegraphics[width=0.9\linewidth]{figures/ci40A.eps}
 	\end{center}
-	\caption{Same as figure~\ref{fig:cipeaks-device}, but for the 0.4 nm separated
-	system.}
-	\label{fig:cipeaks-device-strongcoupling}
+	\caption{CI for the 4.0A system}
+	\label{fig:cipeaks40A}
 \end{figure}
+
+\subsection{Stronger Coupling}
 
 
 \section{Conclusions}
