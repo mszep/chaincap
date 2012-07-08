@@ -301,9 +301,7 @@ its single excitations. By Thouless' theorem~\cite{Thouless}, to first order in
 the non-reference \acp{CSF}, the wave function obtained by diagonalizing in
 this space would still be describable as a single determinant (and
 thus, by definition, contain no correlation), but by adding degrees of freedom
-to the system, a degree of self-consistency is attained. The results for the
-\ac{HOMO} and \ac{LUMO} quasiparticle levels are plotted in
-figure~\ref{fig:cipeaks45A}.
+to the system, a degree of self-consistency is attained. 
 
 At this point, it is useful to compare the error in the two cases discussed
 thus far. To relate the many-body energies to the single-particle levels, we
@@ -340,38 +338,82 @@ vector contains no correlation energy, but that would not be the case in a more
 extensive \ac{CI} scheme. Table \ref{tab:eesum} contains the comparisons for
 the 0.45 nm system with 68 electrons.
 
+% FULL PRECISION VALUES
+%               & single determinant & single excitations & $\sum \omega_i$ \\
+%   real part      & -17.978662182501026 & -17.979628470130947 & -17.978417894\\
+%   imaginary part & -0.12546017404575291 & -0.1252335053564404 & -0.1252903752532\\
 \begin{table}
-	\centering
-	\begin{tabular}{c c c}
-		bla & blo \\
-		bli & blu
-	\end{tabular}
-	\caption{bbbbl}
-	\label{tab:eesum}
+  \centering
+  \begin{tabular}{l r r r} 
+    \hline
+                 & single determinant & single excitations & $\sum \omega_i$ \\
+    \hline
+    real part      & -17.97866 & -17.97962 & -17.97841\\
+    imaginary part & -0.12546 & -0.12523 & -0.12529\\
+    \hline
+  \end{tabular}
+  \caption{Comparison of many-body energies (columns 1 and 2) with
+           single-particle levels (column 3).}
+  \label{tab:eesum}
 \end{table}
 
+For the single determinant case, we obtain good agreement in the real part, but
+a significant error in the imaginary part, consistent with behaviour plotted in
+\ref{fig:nobranch45A}. Again, this is due to the real basis not being well able
+to reproduce imaginary eigenvectors. For the single excitations case, the
+situation is reversed; for the real part we get an error which we ascribe to
+the finite expansion (Thouless' theorem is only valid in an infinite basis),
+whereas for the imaginary part we get good agreement, due to the fact that our
+complex \ac{CI} code was able to assign complex coefficients to the \acp{CSF}
+and thus reproduce the imaginary part of the energy better.
 
 \subsection{Complex \ac{CI}}
 
+We now move on to the \ac{CI} results, where the criterion for inclusion of a
+\ac{CSF} in the \ac{CI} vector is simply its coefficient in the wave function,
+and the threshold is a program parameter which can be varied to include a given
+amount of correlation. The results for both systems have been plotted together,
+in figure~\ref{fig:cihomo} for the \ac{HOMO}, and figure~\ref{fig:cilumo}
+for the \ac{LUMO}. The curves labeled ``unrestricted'' indicate that the \ac{CI}
+procedure was not limited to MOs on the molecule; MOs localized on the lead
+sections of the device were also included. Note that in this case, the QP gap
+widens, which would seem to be in contrast to earlier findings which indicated
+that screening effects on the metal leads renormalize the levels of the device,
+leading to lower gaps~\cite{thygesen_rubio, thygesen}. This behaviour persists
+however, in \ac{CI} calculations performed on the system in absence of a
+\acp{CAP}, indicating that this is a physical effect.
+
+For the ``restricted'' calculations, the \ac{CI} space was truncated to contain
+only excitations from and to MOs of the molecule (this set was found by
+comparing the real parts of the complex eigenvalues $\omega_i$ with the
+positions of the peaks of the respective transmission spectrum). As can be seen
+in the figures, the \ac{CI} gap is slightly smaller than the HF gap, and
+decreases with increasing correlation, consistent with the HF and GW
+results in~\cite{thygesen_rubio, thygesenrubio2010corr}. In both cases the peak
+widths are larger than the corresponding transmssion (HF) peaks, but similar
+to the single excitations peaks, indicating that the broadening is accurately
+captured at the level of single excitations.
+
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.9\linewidth]{figures/ci45A.eps}
+		\includegraphics[width=0.9\linewidth]{figures/cihomo.eps}
 	\end{center}
-	\caption{CI for the 4.5A system}
-	\label{fig:cipeaks45A}
+	\caption{CI for the \ac{HOMO} of the 0.45 (top) and 0.40 nm (middle)
+                 systems, with the Density of States of the leads plotted
+                 below.}
+	\label{fig:cihomo}
 \end{figure}
 
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.9\linewidth]{figures/ci40A.eps}
+		\includegraphics[width=0.9\linewidth]{figures/cilumo.eps}
 	\end{center}
-	\caption{CI for the 4.0A system}
-	\label{fig:cipeaks40A}
+	\caption{CI for the \ac{LUMO} of the 0.45 (top) and 0.40 nm (middle)
+                 systems, with the Density of States of the leads plotted
+                 below.}
+	\label{fig:cilumo}
 \end{figure}
-
-\subsection{Stronger Coupling}
-
 
 \section{Conclusions}
 
