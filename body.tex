@@ -288,9 +288,9 @@ $\um{H}_0 + \um{W}$).
 	\begin{center}
 		\includegraphics[width=0.9\linewidth]{figures/nobrsingles45A.eps}
 	\end{center}
-	\caption{4.5A system: Comparison of the transmission from Green functions (red) to
-	         the Lorentzian peaks obtained by subtracting
-		 single-determinant many-body energies (green).}
+	\caption{4.5A system: Comparison of the transmission from Green
+                 functions (red) to the Lorentzian peaks obtained by
+                 subtracting single-determinant many-body energies (green).}
 	\label{fig:nobranch45A}
 \end{figure}
 
@@ -298,9 +298,9 @@ $\um{H}_0 + \um{W}$).
 	\begin{center}
 		\includegraphics[width=0.9\linewidth]{figures/nobrsingles40A.eps}
 	\end{center}
-	\caption{4.0A system: Comparison of the transmission from Green functions (red) to
-		 the Lorentzian peaks obtained by subtracting
-		 single-determinant many-body energies (green).}
+	\caption{4.0A system: Comparison of the transmission from Green
+                 functions (red) to the Lorentzian peaks obtained by
+                 subtracting single-determinant many-body energies (green).}
 	\label{fig:nobranch40A}
 \end{figure}
 
@@ -312,16 +312,18 @@ its single excitations. By Thouless' theorem~\cite{Thouless}, to first order in
 the non-reference \acp{CSF}, the wave function obtained by diagonalizing in
 this space would still be describable as a single determinant (and
 thus, by definition, contain no correlation), but by adding degrees of freedom
-to the system, a degree of self-consistency is attained. 
+to the system, a degree of self-consistency is attained. This is similar to a
+$\Delta$-SCF calculation, where many-body energies of different particle number
+are compared at the SCF level.
 
 We make a distinction between two types of ``singles'' \ac{CI} vectors: for the
-``restricted'' calculations, the \ac{CI} space was truncated to contain only
+``molecule'' calculations, the \ac{CI} space was truncated to contain only
 excitations from and to MOs of the molecule (this set was found by comparing
 the real parts of the complex eigenvalues $\omega_i$ with the positions of the
-peaks of the respective transmission spectrum). The ``unrestricted''
-calculations contain the full singles \ac{CI} vector, i.e. all single
-excitations plus the reference determinant. The results are plotted in
-figures~\ref{fig:nobranch45A} and \ref{fig:nobranch40A}.
+peaks of the respective transmission spectrum). The ``device'' calculations
+contain the full singles \ac{CI} vector, i.e. all single excitations plus the
+reference determinant. The results are plotted in figures~\ref{fig:nobranch45A}
+and \ref{fig:nobranch40A}.
 
 At this point, it is useful to compare the error in the two cases discussed
 thus far. To relate the many-body energies to the single-particle levels, we
