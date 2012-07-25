@@ -242,10 +242,12 @@ figure~\ref{fig:13evals}.
 
 This is a case of weak coupling, as can be seen by the narrowness of the
 transmission peaks, and by the fact that they are not significantly shifted
-from the real-valued Hartree-Fock single-particle levels, which are indicated
-by vertical blue lines. The agreement between the Green function transmission
-(red) and the peaks derived from the eigenvalues of $\um{H}_0 + \um{W}$ (green)
-is excellent, both in terms of position (real part) and width (imaginary part).
+from the real-valued Hartree-Fock single-particle levels. The agreement between
+the Green function transmission (red) and the peaks derived from the
+eigenvalues of $\um{H}_0 + \um{W}$ (green) is excellent, both in terms of
+position (real part) and width (imaginary part). In the inset, the region
+around the \ac{HOMO} is plotted in detail, showing the extent of the agreement
+between the two methods (the green and red curves practically overlap).
 
 \begin{figure} 
 	\begin{center}
@@ -256,8 +258,9 @@ is excellent, both in terms of position (real part) and width (imaginary part).
 	model system as described in section~\ref{subsec:modelsystem}, with
 	device-lead gap of 0.45 nm. Transmission data was obtained from
 	\ac{NEGF} calculations with the TIMES program~\cite{times}.
-        Blue vertical lines indicate the single-particle levels of the device
-        in the Hartree-Fock approximation.}
+	The inset shows a close-up view of the \ac{HOMO}, with the HF \ac{HOMO}
+	shown in blue for reference.
+	}
 	\label{fig:13evals}
 \end{figure}
 
@@ -307,21 +310,21 @@ $\um{H}_0 + \um{W}$).
 
 The next step is to include, for each state, the reference determinant plus all
 its single excitations. By Thouless' theorem~\cite{Thouless}, to first order in
-the non-reference \acp{CSF}, the wave function obtained by diagonalizing in
-this space would still be describable as a single determinant (and
-thus, by definition, contain no correlation), but by adding degrees of freedom
-to the system, a degree of self-consistency is attained. This is similar to a
-$\Delta$-SCF calculation, where many-body energies of different particle number
-are compared at the SCF level.
+the coefficients of the non-reference \acp{CSF}, the wave function obtained by
+diagonalizing in this space would still be describable as a single determinant
+(and thus, by definition, contain no correlation), but by adding degrees of
+freedom to the system, a degree of self-consistency is attained. This is similar
+to a $\Delta$-SCF calculation, where many-body energies of different particle
+number are compared at the SCF level.
 
 We make a distinction between two types of ``singles'' \ac{CI} vectors: for the
 ``molecule'' calculations, the \ac{CI} space was truncated to contain only
 excitations from and to MOs of the molecule (this set was found by comparing
 the real parts of the complex eigenvalues $\omega_i$ with the positions of the
-peaks of the respective transmission spectrum). The ``device'' calculations
-contain the full singles \ac{CI} vector, i.e. all single excitations plus the
-reference determinant. The results are plotted in figures~\ref{fig:nobranch45A}
-and \ref{fig:nobranch40A}.
+peaks of the respective transmission spectrum). The ``device region''
+calculations contain the full singles \ac{CI} vector, i.e. all single
+excitations plus the reference determinant. The results are plotted in
+figures~\ref{fig:nobranch45A} and \ref{fig:nobranch40A}.
 
 At this point, it is useful to compare the error in the two cases discussed
 thus far. To relate the many-body energies to the single-particle levels, we
@@ -335,7 +338,7 @@ energies
 \end{equation}
 
 which reflects the fact that when summing the single particle energies, the
-two-body terms are counted twice and must be subtracted out to obtian the total
+two-body terms are counted twice and must be subtracted out to obtain the total
 energy. On the other hand, from the many-body point of view, we have
 
 \begin{equation}
