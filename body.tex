@@ -2,7 +2,7 @@
 
 Atomic chains form one of the prototypical systems in the study of
 molecular electronic systems. Atomic nanowires can be fabricated on
-inert surfaces~\cite{segovia1999nature,nilius2002science} or in
+inert surfaces \cite{segovia1999nature,nilius2002science} or in
 mechanically controlled break junctions \cite{vanruitenbeek1998mcbj}.
 Atomic nanowires are of fundamental scientific interest as they form
 electronic one-dimensional systems and for technology they may be viewed
@@ -29,7 +29,7 @@ treatment of the electronic structure with a formal \ac{NEGF} treatment of
 transport in open systems. More recently, the {\it GW}
 approximation~\cite{hedin1965gw} has been introduced to improve  the
 quaisparticle description of atomic scale tunnel junctions beyond a Kohn-Sham
-description~\cite{RubioThyhgesen,Neaton}.  Use of the
+description~\cite{thygesen_rubio,neaton2007amines}.  Use of the
 Kohn-Sham energies in the NEGF formulation implies a single determinant
 approximation to the many-electron Green's function and similarly the
 {\it GW} approximation may be viewed as dynamically screened version of
@@ -37,10 +37,8 @@ the Hartree-Fock theory, likewise implying a single determinant
 approximation to the many-electron Green's function.  Alternative to
 these methods are to use the ideas of exact diagonalization or
 configuration interaction in rate equation formulations of electron
-transport~\cite{J. N. Pedersen and A. Wacker: Tunneling through
-nanosystems: Combining broadening with many-particle states, Physical
-Review B 72, 195330 (2005)} or through a many-electron scattering
-formulation of the transport problem~\cite{vici2004}. 
+transport~\cite{pedersen_many_body_tunneling} or through a many-electron
+scattering formulation of the transport problem~\cite{vici2004}. 
 
 In defining models for atomic-scale transport junctions, a partitioning
 of the system into semi-infinite electrodes and device region is usually
@@ -52,20 +50,19 @@ electrode not explicitly treated by the extended device region is in
 most theoretical studies treated by electrode self-energies. In this
 approximation, electronic excitations in the electrode region are not
 considered. Exceptions to the restriction include
-ref.~\cite{galperin2006prl} where the effect of coupling lead
-excitations to a two state model of molecular tunnel junction is
-explored, or as in a recent formulation of NEGF that allows for
-inclusion of electrode interactions to be explicitly
-treated~\cite{Ness2011prb}. In the calculations in
-ref.~\cite{galperin2006prl}, it is found for certain ranges of electrode
-couplings and with left-right asymmetry, that the current arising from
-lead excitations can be comparable to the current flowing due to direct
-tunneling.
+ref.~\cite{galperin_nitzan2006leadexcitations} where the effect of coupling
+of lead excitations to a two state model of a molecular tunnel junction is
+explored, or as in a recent formulation of \ac{NEGF} that allows for
+electrode interactions to be explicitly treated~\cite{ness2012jpa_leadnegf}.
+In the calculations in ref.~\cite{galperin_nitzan2006leadexcitations}, it is
+found for certain ranges of electrode couplings and with left-right asymmetry,
+that the current arising from lead excitations can be comparable to the
+current flowing due to direct tunneling.
 
 In the following, we apply the method of configuration interaction to a
 simple model of electrodes coupled to atomic chain to investigate the
 influence of electron correlations on quasiparticle states arising from
-the device region, and as well we consider the influence of electrode
+the device region, and in addition we consider the influence of electrode
 excitations as they couple to the device region. This approach enables
 us to study the junction in an uncorrelated limit (single determinant
 approximation), and to systematically include electron correlations on
@@ -74,77 +71,21 @@ evolve. By allowing electrode excitations to enter the calculation, we
 are able to explore how correlated electrons on the device region
 interact with electrode excitations.
 
-%In earlier work~\cite{henderson}, a method was outlined in which an
-energy-dependent self-energy is mapped to an energy-independent
-\ac{CAP}, which, %when added to the Hamiltonian, can be used in a
-many-body treatment of the system. Here, we present a continuation of
-that work, applying the method to %a chain of atoms with interacting
-electrons, and using a complex \ac{CI} scheme for the calculation of
-electronic structure.
-%Different levels of correlation are studied by varying the threshold
-parameter for \acp{CSF} in the \ac{CI} calculation.
-
-%The rest of this paper is organized as follows: in
-section~\ref{sec:method}, we cover the methods used in this work, both
-for constructing the \ac{CAP} and %for
-%solving the resulting complex symmetric many-body problem. In
-section~\ref{sec:results} we present and discuss some results of
-applying the
-%ormalism to a simple atomic chain system. Finally,
-section~\ref{sec:conclusions} contains conclusions and further
-perspectives.
-
-
-\section{Introduction}
-
-Atomic chains form one of the prototypical systems in the study of molecular
-electronic systems. They can be fabricated on inert
-surfaces~\cite{nilius2002science, segovia1999nature} or in mechanically
-controlled break junctions \cite{vanruitenbeek1998mcbj} and are of interest as
-potential electronic interconnects, but also because their highly nonclassical
-behaviour allows the various theoretical approaches to the one-dimensional
-quantum transport problem to be compared with experiment.
-
-Early theoretical approaches to the problem of the conductance of molecular
-chains were based on a tight-binding formalism, combined with
-Landauer-B\"uttiker theory for transport
-\cite{emberlykirczenow1999standingwave, emberlykirczenow2000molecularwire}.
-Later on, \ac{DFT}-based methods gained prominence, with conductance
-characteristics either inferred from the Friedel sum
-rule~\cite{sim2001sodiumwire}, or calculated using the \ac{NEGF}
-\cite{meirwingreen1992negf} formalism~\cite{leepuska2004monovalent,
-thygesen2003aluminium}. More recently, the GW approximation~\cite{hedin1965gw}
-has been introduced as a way of correcting the Kohn-Sham single particle
-energies to more closely correspond to the actual quasiparticle energies of the
-system~\cite{thygesen_rubio, thygesenrubio2010corr}. Using this formalism,
-transport calculations on molecular junctions have been able to achieve
-semi-quantitative levels of accuracy~\cite{strange2011benzene,
-strange2011alkane}.
-
-However, moethods based on \ac{DFT} + \ac{NEGF} are not the only option for
-studying molecular electronic devices. In a different approach, methods from
-the field of quantum chemistry, with which it is possible to incorporate
-electron correlations to an arbitrary degree can  used \cite{vici2004} but in
-those cases, modeling the effect of coupling to leads is problematic. Including
-an energy-dependent potential term in the Hamiltonian is possible in principle,
-but not feasible in practice.
-
-In earlier work~\cite{henderson}, a method was outlined in which an
-energy-dependent self-energy is mapped to an energy-independent
-\ac{CAP}, which, when added to the Hamiltonian, can be used
-in a many-body treatment of the system. Here, we present a continuation of that
-work, applying the method to a chain of atoms with interacting electrons, and
-using a complex \ac{CI} scheme for the calculation of electronic structure.
-Different levels of correlation are studied by varying the threshold
-parameter for \acp{CSF} in the \ac{CI} calculation.
-
-The rest of this paper is organized as follows: in section~\ref{sec:method}, we
-cover the methods used in this work, both for constructing the \ac{CAP} and for
-solving the resulting complex symmetric many-body problem. In
-section~\ref{sec:results} we present and discuss some results of applying the
-formalism to a simple atomic chain system. Finally,
-section~\ref{sec:conclusions} contains conclusions and further perspectives.
-
+% In earlier work~\cite{henderson}, a method was outlined in which an
+% energy-dependent self-energy is mapped to an energy-independent
+% \ac{CAP}, which, when added to the Hamiltonian, can be used in a
+% many-body treatment of the system. Here, we present a continuation of
+% that work, applying the method to a chain of atoms with interacting
+% electrons, and using a complex \ac{CI} scheme for the calculation of
+% electronic structure. Different levels of correlation are studied by
+% varying the threshold parameter for \acp{CSF} in the \ac{CI} calculation.
+% 
+% The rest of this paper is organized as follows: in
+% section~\ref{sec:method}, we cover the methods used in this work, both for
+% constructing the \ac{CAP} and for solving the resulting complex symmetric
+% many-body problem. In section~\ref{sec:results} we present and discuss some
+% results of applying the formalism to a simple atomic chain system. Finally,
+% section~\ref{sec:conclusions} contains conclusions and further perspectives.
 
 \section{Method}
 \label{sec:method}
