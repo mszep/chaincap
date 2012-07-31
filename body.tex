@@ -1,5 +1,102 @@
 \section{Introduction}
 
+Atomic chains form one of the prototypical systems in the study of
+molecular electronic systems. Atomic nanowires can be fabricated on
+inert surfaces~\cite{segovia1999nature,nilius2002science} or in
+mechanically controlled break junctions \cite{vanruitenbeek1998mcbj}.
+Atomic nanowires are of fundamental scientific interest as they form
+electronic one-dimensional systems and for technology they may be viewed
+as the limit for metal interconnects in use for nanoelectronics.  Atomic
+nanowires are also useful for benchmarking one-dimensional quantum
+transport formulations as experiments for these systems provide well
+defined and understood conductance values.
+
+Some of the earliest theoretical work with explicit treatment of the
+electronic within a quatum transport study of atomic chains is due to
+Lang~\cite{Lang1995prb} and this work has served as the prototype for
+subsequent studies in molecular tunnel junctions. In this early work,
+jellium electrodes are coupled to metal atom chains and the electronic
+structure of the system is treated using \ac{DFT}. The Kohn-Sham states
+from \ac{DFT} are treated as quasiparticles and the Lippmann-Schwinger
+scattering equations are solved for the case of an external voltage bias
+applied to the electrodes. Similar scattering approaches in conjunction
+with tight binding Hamiltonians applied to the conductance of molecular
+junctions combined with Landauer-B\"uttiker theory for electron transport
+\cite{emberlykirczenow1999standingwave,
+emberlykirczenow2000molecularwire} have been undertaken. 
+Subsequently, similar methods have gained prominence by combining a \ac{DFT}
+treatment of the electronic structure with a formal \ac{NEGF} treatment of
+transport in open systems. More recently, the {\it GW}
+approximation~\cite{hedin1965gw} has been introduced to improve  the
+quaisparticle description of atomic scale tunnel junctions beyond a Kohn-Sham
+description~\cite{RubioThyhgesen,Neaton}.  Use of the
+Kohn-Sham energies in the NEGF formulation implies a single determinant
+approximation to the many-electron Green's function and similarly the
+{\it GW} approximation may be viewed as dynamically screened version of
+the Hartree-Fock theory, likewise implying a single determinant
+approximation to the many-electron Green's function.  Alternative to
+these methods are to use the ideas of exact diagonalization or
+configuration interaction in rate equation formulations of electron
+transport~\cite{J. N. Pedersen and A. Wacker: Tunneling through
+nanosystems: Combining broadening with many-particle states, Physical
+Review B 72, 195330 (2005)} or through a many-electron scattering
+formulation of the transport problem~\cite{vici2004}. 
+
+In defining models for atomic-scale transport junctions, a partitioning
+of the system into semi-infinite electrodes and device region is usually
+performed. The device region is given by an explicit model that includes
+the device (i.e. atomic chain, molecule, nanowire) as well as a region
+that defines the bonding of the device to electrodes, resulting in an
+'extended device' or 'extended molecule' region. The portion of the
+electrode not explicitly treated by the extended device region is in
+most theoretical studies treated by electrode self-energies. In this
+approximation, electronic excitations in the electrode region are not
+considered. Exceptions to the restriction include
+ref.~\cite{galperin2006prl} where the effect of coupling lead
+excitations to a two state model of molecular tunnel junction is
+explored, or as in a recent formulation of NEGF that allows for
+inclusion of electrode interactions to be explicitly
+treated~\cite{Ness2011prb}. In the calculations in
+ref.~\cite{galperin2006prl}, it is found for certain ranges of electrode
+couplings and with left-right asymmetry, that the current arising from
+lead excitations can be comparable to the current flowing due to direct
+tunneling.
+
+In the following, we apply the method of configuration interaction to a
+simple model of electrodes coupled to atomic chain to investigate the
+influence of electron correlations on quasiparticle states arising from
+the device region, and as well we consider the influence of electrode
+excitations as they couple to the device region. This approach enables
+us to study the junction in an uncorrelated limit (single determinant
+approximation), and to systematically include electron correlations on
+the device region and electrodes to study how the quasiparticle states
+evolve. By allowing electrode excitations to enter the calculation, we
+are able to explore how correlated electrons on the device region
+interact with electrode excitations.
+
+%In earlier work~\cite{henderson}, a method was outlined in which an
+energy-dependent self-energy is mapped to an energy-independent
+\ac{CAP}, which, %when added to the Hamiltonian, can be used in a
+many-body treatment of the system. Here, we present a continuation of
+that work, applying the method to %a chain of atoms with interacting
+electrons, and using a complex \ac{CI} scheme for the calculation of
+electronic structure.
+%Different levels of correlation are studied by varying the threshold
+parameter for \acp{CSF} in the \ac{CI} calculation.
+
+%The rest of this paper is organized as follows: in
+section~\ref{sec:method}, we cover the methods used in this work, both
+for constructing the \ac{CAP} and %for
+%solving the resulting complex symmetric many-body problem. In
+section~\ref{sec:results} we present and discuss some results of
+applying the
+%ormalism to a simple atomic chain system. Finally,
+section~\ref{sec:conclusions} contains conclusions and further
+perspectives.
+
+
+\section{Introduction}
+
 Atomic chains form one of the prototypical systems in the study of molecular
 electronic systems. They can be fabricated on inert
 surfaces~\cite{nilius2002science, segovia1999nature} or in mechanically
