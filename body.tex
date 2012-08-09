@@ -93,29 +93,47 @@ interact with electrode excitations.
 \subsection{Model System}
 \label{subsec:modelsystem}
 
-The system (``device'') we shall study consists of a simple atomic chain with
-interatomic separation of 0.28 nm, intended to mirror the system studied
-experimentally in~\cite{nilius2002science} (See
-figure~\ref{fig:chaincapdevice}). Two interatomic spacings are made larger than
-the others, to delineate a ``molecule'' between two leads. This spacing
-determines the degree to which the device states couple to the leads, and
-variation of the spacing allows us to explore different coupling regimes.
+The extended device we study is built from a simple atomic chain
+consisting of 68 gold atoms with an interatomic separation of 0.28 nm
+corresponding to gold chains studied experimentally in
+ref.~\cite{nilius2002science} (see figure~\ref{fig:chaincapdevice}).
+Within the explicit chain region, two interatomic spacings are chosen
+larger than all other atom spacings to define a `molecule' between two
+leads. The explicit left and right leads are each composed of 24 atoms,
+and the central molecular region is composed of 20 atoms. The width of
+the gap between the leads and molecule determines the strength of the
+coupling and varying the spacing allows the different coupling regimes
+to be investigated. 
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.9\linewidth]{figures/chaincapdevice}
 	\end{center}
-	\caption{Model system studied in this work. The molecule consists of 20
-	Gold atoms, while the leads consist of 24 atoms each.}
+	\caption{Model system studied in this work. The molecule consists of
+        20 Gold atoms, while the leads each consist of 24 atoms. The spacing
+        between molecules and electrodes determines the coupling of the
+        molecular states to the electrodes.}
 	\label{fig:chaincapdevice}
 \end{figure}
 
-For comparison purposes, the transmission spectrum of this system was
-calculated in the \ac{NEGF} formalism using the TIMES~\cite{times} code. The
-objective is to model the peaks of this spectrum with Lorentzian curves for
-which the peak location and peak width are extracted from the real and
-imaginary parts, respectively, of the complex eigenvalues obtained by
-diagonalization of the Hamiltonian which includes a complex symmetric \ac{CAP}.
+The regions outside of the explicit atomic region are described by a
+\ac{CAP} in analogy to the use of electrode self-energies. The details of
+the ab initio \ac{CAP} used are described below and its use has advantages
+when including electron correlations into the calculations. In
+zero$^{th}$ order, we use the Hartree-Fock approximation to calculate
+quasiparticle states and the transmission spectrum for the model system
+is calculated using a scattering Green's function approach as
+implemented in the TIMES program~\cite{times} with the electrodes in
+these calculations described using standard electrode self-energies.
+This scattering calculation delivers the Hartree-Fock quasiparticle
+spectrum including the energy shifts and state broadening that arise
+from coupling the molecular region to electrodes, and serves as the
+reference point for discussing subsequent calculations performed at
+different levels of approximation.
+
+% Isn't it a bit strange to emphasize HF as the 0th order approximation
+% when we decided that the single determinant QP spectrum (with wider peaks
+% than Koopmans) was not something we wanted to dwell on?
 
 \subsection{Complex Absorbing Potential}
 \label{subsec:CAP}
