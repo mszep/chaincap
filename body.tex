@@ -138,70 +138,149 @@ different levels of approximation.
 \subsection{Complex Absorbing Potential}
 \label{subsec:CAP}
 
-The procedure for construction of an energy-independent \ac{CAP} from the
-energy-dependant self-energy is discussed in detail in~\cite{henderson}. We
-briefly present the essential points here.
+To treat electron correlations, we apply the method of \ac{CI}. The \ac{CI}
+method is the application of the Rayleigh-Ritz linear variational principle
+to the calculation of quantum many-electron energies. Within this approach,
+the many-electron wavefunction is expanded in terms of Slater determinants
+(or spin-coupled sums of determinants referred to as \acp{CSF}). Variation
+of the \ac{CI} expansion coefficients leads to a matrix eigenvalue problem
 
-The initial Hamiltonian $\um{H}_0$ , with eigenvalues $\varepsilon_i$ and
-eigenvectors $\ket{X}_i$, is that of a single unit cell of the semi-infinite
-lead. Its self-energy is calculated using the TIMES code~\cite{times}. The
-self-energy is adiabatically added to the Hermitian Hamiltonian $\um{H}_0$
-leading to the following Dyson equations:
+\begin{equation}
+\um{H} \vec{c} = E \um{S} \vec{c},
+\end{equation} 
 
+where $\um{H}$ is the matrix representation of the many-electron
+Hamiltonian in the CSF basis, $\um{S}$ is the metric for the CSF basis,
+$E$ is a many-electron energy and $\vec{c}$ is the vector of the
+expansion coefficients or 'CI vector'. The matrix elements of $\um{H}$
+and $\um{S}$ are constructed from one- and two-electron integrals
+defined in the single particle basis used to construct the CSFs, and for
+example can be Hartree-Fock states. However, in this treatment of the
+many-electron problem no reference is made to single particle or
+quasiparticle energies. Hence the inclusion of the electrodes into the
+CI problem using electrode self-energies is complicated by the fact that
+the self-energies are functions of the quasiparticle energies on the
+electrodes. To avoid this complication, we employ instead energy-independent
+\acp{CAP} that serve as replacement to the self-energy terms without ???
+while eliminating reference to single particle energies into the resulting
+\ac{CI} problem. Note however, that by opening the system using either
+electrode self-energies or \acp{CAP},  the traditionally Hermitian \ac{CI}
+generalized eigenvalue problem becomes a complex symmetric generalized
+eigenvalue problem. The procedure for construction of an energy-independent
+\ai \ac{CAP} from the energy-dependant self-energy is discussed in detail
+in ref.~\cite{henderson}. We briefly cover the essential points needed for the
+generation of the \ac{CAP} in the following.
+
+We first consider two electrodes described by known left ($\Sigma_L(\omega)$)
+and right ($\Sigma_R(\omega)$) self-energies. In practice, the complex valued
+self-energies for the electrodes are calculated using the TIMES
+program~\cite{times}. These self-energies are added to the device region
+Hamiltonian $\um{H}_D$ to yield
+ 
 \begin{subequations}
 \begin{align}
-	[\um{H} + \lambda \um{\Sigma}(\omega_i^\lambda)] \ket{\psi_i^\lambda}
-	&= \omega_i^\lambda \um{S}_0 \ket{\psi_i^\lambda} \\
-	\bra{\varphi_i^\lambda} [\um{H} + \lambda \um{\Sigma}(\omega_i^\lambda)]
-	&= \omega_i^\lambda \um{S}_0 \bra{\varphi_i^\lambda} 
-	\label{eq:adiabaticap}
+        [\um{H}_D + \lambda \um{\Sigma_L}(\omega_i^\lambda)
+            +\lambda \um{\Sigma_R}(\omega_i^\lambda)] \ket{U_i^\lambda}
+        &= \omega_i^\lambda \ket{U_i^\lambda} \\
+        \bra{V_i^\lambda} [\um{H}_D + \lambda \um{\Sigma_L}(\omega_i^\lambda)
+            +\lambda \um{\Sigma_R}(\omega_i^\lambda)]
+        &= \omega_i^\lambda \bra{V_i^\lambda},
+        \label{eq:adiabaticap}
 \end{align}
 \end{subequations}
 
-% The real part of $\omega_i$ gives the position of the $i$th resonance including
-% the shift from the initial eigenvalue $\varepsilon_i$, the imaginary part gives
-% the level broadening.
-The adiabatic coupling is achieved by varying $\lambda$. At $\lambda = 0$ we
-have the initial states $\ket{X}$ and eigenvalues $\varepsilon$, while at
-$\lambda = 1$ we have the target states and energy levels.
+where the parameter $\lambda$ is introduced to allow for an adiabatic
+coupling between the electrode states and the extended device region
+'molecular states'.  At $\lambda = 0$, the states on the extended device
+region are obtained as described by eigenvectors $\ket{X_i}$ (that may
+be chosen real) and real eigenvalues $\varepsilon_i$. As $\lambda$ is
+increased the device region and electrode single particle states begin
+to couple until at $\lambda=1$, the Hartree-Fock states for the open
+system are given by the complex energies $\omega_i$, right eigenvectors
+$\ket{U_i}$ and left eigenvectors $\bra{V_i}$; the left and right
+eigenvectors are a consequence of introducing the complex valued
+self-energies into the eigenvalue problem. The introduction of the
+adiabatic coupling of the self-energies permits us to 'label' the
+molecular states and to follow their evolution as the system is opened.
+This allows us to use the prescription given in the following to
+calculate an \ai \ac{CAP} by selecting those eigenvalues that correspond
+to the uncoupled device region states. At $\lambda=1$, the real part of
+$\omega_i$ gives the energy of the $i$th resonance including the shift due
+to electrode coupling and the imaginary part gives the level broadening.
 
-For the construction of the \ac{CAP}, since our many body code can only deal
-with real MO basis sets, we are forced to use the real eigenbasis of \umm{H}
-($\um{W}_0$ from \cite{henderson}), defining the \ac{CAP} to be
+The goal is to build an energy-independent complex potential
+$\um{W} = \um{W_L} + \um{W_R}$
+such that the Hamiltonian $\um{H}_D + \um{W}$ has the same eigenvalues
+as when calculated using the explict self-energies. Such a Hamiltonian is
+not readily constructed as when we select the different $\omega_i$, we are
+as a consequence selecting different Hamiltonians
+$\um{H}_D + \um{\Sigma_L}(\omega_i) + \um{\Sigma_R}(\omega_i)$
+and the biorthogonality for the left and right eigenvectors does not
+necessarily hold ($<V_i|U_j> \ne \delta_{ij}$). We consider instead
+constructions which yield eigenvalues that approximate the $\omega_i$  and
+eigenvectors that approximate the left and right eigenvectors while
+satisifying biorthogonality. Given such a set of approximate eigenvectors
+we write
 
 \begin{equation}
-	\um{W} = \um{S}\um{X}\um{\omega}\um{X}^\dagger - \um{H}_0
-	\label{eq:capsdef}
+    \um{W} = \sum_i  \ket{U^\prime_i} \omega_i \bra{V^\prime_i} - \um{H}_D
+    \label{eq:capsdefUV}
 \end{equation}
 
-where \umm{\omega} is a diagonal matrix with the complex value $\omega_i$ as
-its $i$th diagonal element.
-
-This projection introduces a small amount of inaccuracy, as will be discussed
-later. We calculate the transmission through the device region via
+which for biorthogonal $\ket{V^\prime_i}$ and $\bra{U^\prime_i}$ will give by
+construction an operator $\um{H}_D + \um{W}$ with the correct eigenvalues
+and approximate eigenvectors. In practice we work in the real basis of the
+device region and calculate
 
 \begin{equation}
-	T(E) = \mathbf{tr}(\Lambda_L G \Lambda_R G^\dagger)	
-	\label{eq:transmission}
+    \um{W} = \um{S} \um{X} \um{\omega}\um{X}^\dagger - \um{H}_D
+    \label{eq:capsdefX}
 \end{equation}
 
-Where generally in the definition of the Green's function, $G$ and spectral
-densities, $\Lambda_{L(R)}$ self-energy is used, we replace this with W.
+in matrix form, with $\um{S}$ the overlap or metric for the atomic
+orbital basis used to describe the device region, $\um{X}^\dagger$ and
+$\um{X}$ are the matrices of the eigenvectors of device region
+Hamiltonion $\um{H}_D$, and $\um{\omega}$ is the eigenvalue matrix. In
+practice, as the self-energies are independent of the device region for
+a properly defined 'extended device region', the \acp{CAP} are generated
+on the electrodes and then transformed to the molecular orbital basis of
+the device region.
+
+% This projection introduces a small amount of inaccuracy, as will be discussed
+% later.
+
+When applying this approximation to generation of the \ac{CAP}, a
+comparison can be performed against the energy level shifts and broadening
+obtained from explicit calculations using the self-energy. To accomplish
+this comparison, we first calculate the electron transmission through
+the device region using the normal formalism of the Green's function
+approach. The calculation is then repeated but in the definition of the
+Green's function $G$ and spectral densities $\Lambda_{L/R}$ the
+self-energy terms are replaced with the \acp{CAP} $\um{W}_{L/R}$ leading
+to the following expressions:
 
 \begin{subequations}
-\begin{align}
-	G &= [E\um{S}_0 - (\um{H}_0 + \um{W})] \\
-	\Lambda_{L(R)} &= i \left( \um{W}_{L,(R)}
-	                  - \um{W}^\dagger_{L(R)} \right)
-\end{align}
-\label{eq:glambdadef}
+  \begin{align}
+    G^{-1} &= [E\um{S}_0 - (\um{H}_0 + \um{W})], \\
+    \Lambda_{L/R)} &= i \left( \um{W}_{L/R} - \um{W}^\dagger_{L/R)}
+    \right).
+  \end{align}
+  \label{eq:glambdadef}
 \end{subequations}
 
-We then analyse the obtained transmission against that using the NEGF formalism
-employed within the TIMES code. This comparison is shown in
-figure~\ref{fig:transdat}, showing the extent of agreement between the two
-approaches. We note the good agreement between the two especially in the energy
-frame of interest, \textit{i.e.} around the \ac{HOMO}-\ac{LUMO} gap.
+The transmission is then calculated as
+
+\begin{equation}
+  T = \um{Tr} \left[ \Lambda_L G \Lambda_R G^\dagger \right]
+  \label{eq:transmfromG}
+\end{equation}
+
+whith the \acp{CAP} playing the role of the electrode self-energies.
+The comparison obtained in this manner is shown in
+figure~\ref{fig:transdat} revealing that the \ac{CAP} provides an
+accurate energy-independent representation of the self-energies and in
+particular, good agreement is achieved on the energy range around the
+\ac{HOMO}-\ac{LUMO} gap of interest for subsequent investigations.
 
 \begin{figure} 
 	\begin{center}
@@ -213,30 +292,6 @@ frame of interest, \textit{i.e.} around the \ac{HOMO}-\ac{LUMO} gap.
 		 using a \ac{CAP}.}
 	\label{fig:transdat}
 \end{figure}
-
-% The goal is to introduce a matrix \umm{W} which mimics the effect of coupling
-% to a semi-infinite lead in a similar way as a complex self-energy
-% \umm{\Sigma(E)}, but without the energy dependence. In order to achieve this,
-% we construct \umm{W} such that, when added to the bare Hamiltonian $\um{H}_0$,
-% it produces the same set of complex eigenvalues and eigenvectors as the
-% Hamiltonian with \umm{\Sigma(E)} added.
-% 
-% This is achieved by solving the related problem
-% 
-% \begin{subequations}
-% \begin{align}
-% 	[\um{H} + \lambda \um{\Sigma}(\omega_i^\lambda)] \ket{\psi_i^\lambda}
-% 	&= \omega_i^\lambda \ket{\psi_i^\lambda} \\
-% 	\bra{\varphi_i^\lambda} [\um{H} + \lambda \um{\Sigma}(\omega_i^\lambda)]
-% 	&= \omega_i^\lambda \bra{\varphi_i^\lambda} 
-% 	\label{eq:adiabaticap}
-% \end{align}
-% \end{subequations}
-% 
-% for $\lambda$ gradually (adiabatically) increasing from 0 to 1. In this way, we
-% go from the eigenenergies and eigenstates of $\um{H}_0$ at $\lambda = 0$ to
-% those of $\um{H}_0 + \um{\Sigma(\omega_i)}$ at $\lambda = 1$.
-
 
 \subsection{Complex Monte Carlo Configuration Interaction}
 
