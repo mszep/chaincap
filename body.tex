@@ -328,21 +328,49 @@ correlated model.
 
 \subsection{Complex Quasiparticle Energies}
 
-We evaluate quasiparticle energies as differences of complex many-body energies
-that result from the \ac{CI} problem, as discussed above. In order to compare
-to transmission spectra from the single-particle picture, we construct
-Lorentzian peaks from the complex energies $\omega_i$ according to
-
+From a many-electron standpoint, energy differences between
+many-electron states determine quasiparticle excitations, as well as
+electron affinities and ionization energies or addition and substraction
+energies, respectively. In this study, we focus on the electron
+affinities and ionization potentials of the {\it explicit} device
+region. For example, the the electron affinity is given by the
+difference in energies for the $N$-particle state $E^N$ and the
+$(N+1)$-particle state $E^{N+1}$
 \begin{equation}
-	f(\varepsilon;\omega_i)
-	= \frac{\left( \frac{\Gamma}{2} \right)^2}
-	       {(\varepsilon - \operatorname{Re}(\omega_i))^2
-	       + \left( \frac{\Gamma}{2} \right)^2}
-	\label{eq:lobro}
+\omega_{\rm EA} = E^{N+1} -E^N
 \end{equation}
-
-where $\Gamma = 2 \times \operatorname{Im}(\omega_i)$ is the broadening
-associated with the eigenvalue (i.e. the width of the Lorentzian peak).
+and similarly the ionization potential
+\begin{equation}
+\omega_{\rm IP} =  E^N - E^{N-1}
+\end{equation}
+is the energy difference between the $N-1$ and $N$ many-electron states.
+Through the introduction of \acp{CAP}, the device region becomes an open
+system resulting in complex many-electron energies. Hence the
+quasiparticles energies $\omega$ are complex. It is the real energy
+shift and imaginary lifetime due to the opening of the system as well
+as due to the introduction of electron correlations which we study for
+the molecular device states.
+From the transmission calculations on our model using a scattering Green's
+function approach, the transmission of the states that evolve from the
+uncoupled device states. % ??? This sentence doesn't make sense to me;
+                         % I don't understand what you're trying to say.
+It is found that these states have transmission values close to unity and
+their lineshapes can be roughly approximated by a lorentzian profile (there
+is some indication of Fano-type resonances indicating that there is a degree
+of coupling between left and right electrodes, but these effects are small
+and do not influence our results). Thus in order to compare to
+transmission spectra obtained from the single-particle scattering
+Green's function calculations picture, we construct Lorentzian peaks from
+the complex quasiparticles $\omega_i$:
+\begin{equation}
+        f(\varepsilon;\omega_i)
+        = \frac{\left( \Gamma/2 \right)^2}
+               {(\varepsilon - \operatorname{Re}(\omega_i))^2
+               + \left( \Gamma/2 \right)^2}
+        \label{eq:lobro}
+\end{equation}
+where $\Gamma = 2 \operatorname{Im}(\omega_i)$ is the lifetime of the
+quasiparticle (i.e. the width of the Lorentzian peak).
 
 \section{Results and Discussion}
 \label{sec:results}
