@@ -469,8 +469,19 @@ excitations from and to MOs of the molecule (this set was found by comparing
 the real parts of the complex eigenvalues $\omega_i$ with the positions of the
 peaks of the respective transmission spectrum). The ``device region''
 calculations contain the full singles \ac{CI} vector, i.e. all single
-excitations plus the reference determinant. The results are plotted in
+excitations plus the reference determinant. The results are also plotted in
 figures~\ref{fig:nobranch45A} and \ref{fig:nobranch40A}.
+
+We see a similar behavior across the two systems studied, in that including
+(single) excitations to the leads lowers the quasiparticle gap relative to the
+case where only device excitations are included. The most interesting feature
+in these plots is the large width for the \ac{LUMO} peak at the
+``device region'' singles level for the 4.0A system
+(figure~\ref{fig:nobranch40A}). This can be directly related to the fact that
+the $N+1$-electron state in this case has two dominant \acp{CSF}, one of which
+is a lead state, whereas in the ``device region'' CI singles case (and also in
+both cases for the 4.5A system) the $N+1$-electron state has only one dominant
+\ac{CSF}, namely the one with the added electron in the device \ac{LUMO}.
 
 \subsection{Complex \ac{CI}}
 
@@ -479,15 +490,13 @@ We now move on to the \ac{CI} results, where the criterion for inclusion of a
 and the threshold is a program parameter which can be varied to include a given
 amount of correlation. The results for both systems have been plotted together,
 in figure~\ref{fig:cihomo} for the \ac{HOMO}, and figure~\ref{fig:cilumo}
-for the \ac{LUMO}. The curves labeled ``unrestricted'' indicate that the \ac{CI}
-procedure was not limited to MOs on the molecule; MOs localized on the lead
-sections of the device were also included. Note that in this case, the QP gap
-widens as compared to the HF case, which would seem to be in contrast to
-earlier findings which indicated that screening effects on the metal leads
-renormalize the levels of the device, leading to lower
-gaps~\cite{thygesen_rubio, thygesen}. This behaviour persists however, in
-\ac{CI} calculations performed on the system in absence of a \acp{CAP},
-indicating that this is a physical effect.
+for the \ac{LUMO}. Note that here, in the case of the ``device region''
+calculations, the QP gap widens as compared to the HF case, in contrast to the
+CI Singles cases discussed earlier. It would also seem to contradict previous
+work which indicated that screening effects on the metal leads renormalize the
+levels of the device, leading to lower gaps~\cite{thygesen_rubio, thygesen}.
+This behaviour persists however, in \ac{CI} calculations performed on the
+system in absence of a \acp{CAP}, indicating that this is a physical effect.
 
 As can be seen in the figures, the \ac{CI} gap is slightly smaller than the HF
 gap, and decreases with increasing correlation, consistent with the HF and GW
@@ -520,13 +529,14 @@ captured at the level of single excitations.
 \section{Conclusions}
 \label{sec:conclusions}
 
-In this work we presented what to our knowledge are the first application
-of wavefunction methods to the study of semi-infinite systems using acomplex
-absorbing potential. For different degrees of molecule-lead coupling and
-different levels of correlation, the complex quasiparticle peaks of a system
-consisting of atomic gold chains were evaluated.
+In this work we presented the results of the application of wavefunction
+methods to the study of semi-infinite systems using a \ac{CAP}. It was shown
+that when lead exitations are not included, the QP gap is smaller than in the
+HF case, and becomes smaller as more correlation is included. Inclusion of
+lead excitations decreases the gap in the CI Singles case, but increases it
+substantially in the more correlated CI cases.
 
-The ability to accurately describe these levels (which in this case
+The ability to accurately describe these QP levels (which in this case
 correspond to \ac{IP} and \ac{EA}) has been shown to be closely related to an
 accurate description of transport~\cite{golden}. This work opens the door for
 the application of non-empirical wave funcion methods to the study of quantum
