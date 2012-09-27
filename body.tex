@@ -1,6 +1,6 @@
 \section{Introduction}
 
-Atomic chains form one of the prototypical systems in the study of
+Atomic chains are a prototype for the study of
 molecular electronic systems. Atomic nanowires can be fabricated on
 inert surfaces \cite{segovia1999nature,nilius2002science} or in
 mechanically controlled break junctions \cite{vanruitenbeek1998mcbj}.
@@ -13,11 +13,11 @@ defined and understood conductance values.
 
 Some of the earliest theoretical work with explicit treatment of the
 electronic within a quatum transport study of atomic chains is due to
-Lang~\cite{Lang1995prb} and this work has served as the prototype for
+Lang~\cite{Lang1995prb} and this work has served as the model for
 subsequent studies in molecular tunnel junctions. In this early work,
 jellium electrodes are coupled to metal atom chains and the electronic
 structure of the system is treated using \ac{DFT}. The Kohn-Sham states
-from \ac{DFT} are treated as quasiparticles and the Lippmann-Schwinger
+in \ac{LDA} are treated as quasiparticles and the electron
 scattering equations are solved for the case of an external voltage bias
 applied to the electrodes. Similar scattering approaches in conjunction
 with tight binding Hamiltonians applied to the conductance of molecular
@@ -45,7 +45,7 @@ of the system into semi-infinite electrodes and device region is usually
 performed. The device region is given by an explicit model that includes
 the device (i.e. atomic chain, molecule, nanowire) as well as a region
 that defines the bonding of the device to electrodes, resulting in an
-'extended device' or 'extended molecule' region. The portion of the
+'extended device' or 'extended molecule'. The portion of the
 electrode not explicitly treated by the extended device region is in
 most theoretical studies treated by electrode self-energies. In this
 approximation, electronic excitations in the electrode region are not
@@ -63,12 +63,12 @@ In the following, we apply the method of configuration interaction to a
 simple model of electrodes coupled to atomic chain to investigate the
 influence of electron correlations on quasiparticle states arising from
 the device region, and in addition we consider the influence of electrode
-excitations as they couple to the device region. Coupling to the leads is
-modeled by a \ac{CAP}~\cite{muga} which has been constructed specifically to
-yield the same complex energy eigenvaules as would have a conventional lead
-self-energy~\cite{henderson}. This approach enables us to study the junction
-in an uncorrelated limit (single determinant approximation), and to
-systematically include electron correlations on the device region and
+excitations as they couple to the device region. Coupling to the extended
+electrodes is modeled by a \ac{CAP} which has been constructed specifically to
+yield the same complex energy eigenvaules as a conventional electrode
+self-energy~\cite{henderson} would produce. This approach enables us to study
+the junction in an uncorrelated limit (single determinant approximation), and
+to systematically include electron correlations on the device region and
 electrodes to study how the quasiparticle states evolve. By allowing electrode
 excitations to enter the calculation, we are able to explore how correlated
 electrons on the device region interact with electrode excitations.
@@ -95,17 +95,17 @@ larger than all other atom spacings to define a `molecule' between two
 leads. The explicit left and right leads are each composed of 24 atoms,
 and the central molecular region is composed of 20 atoms. The width of
 the gap between the leads and molecule determines the strength of the
-coupling and varying the spacing allows the different coupling regimes
-to be investigated. 
+molecule-electrode coupling and varying the spacing allows the different
+coupling regimes to be investigated. 
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.9\linewidth]{figures/chaincapdevice}
 	\end{center}
 	\caption{Model system studied in this work. The molecule consists of
-        20 Gold atoms, while the leads each consist of 24 atoms. The spacing
-        between molecules and electrodes determines the coupling of the
-        molecular states to the electrodes.}
+        20 Gold atoms, while the explicit electrode regions each consist of 24
+	atoms. The spacing between molecules and electrodes determines the
+	coupling of the molecular states to the electrodes.}
 	\label{fig:chaincapdevice}
 \end{figure}
 
@@ -115,9 +115,9 @@ the ab initio \ac{CAP} used are described below and its use has advantages
 when including electron correlations into the calculations. In
 zero$^{th}$ order, we use the Hartree-Fock approximation to calculate
 quasiparticle states and the transmission spectrum for the model system
-is calculated using a scattering Green's function approach as
+is calculated using a Green's function approach as
 implemented in the TIMES program~\cite{times} with the electrodes in
-these calculations described using standard electrode self-energies.
+these scattering calculations described using standard electrode self-energies.
 This scattering calculation delivers the Hartree-Fock quasiparticle
 spectrum including the energy shifts and state broadening that arise
 from coupling the molecular region to electrodes, and serves as the
@@ -137,25 +137,24 @@ to the calculation of quantum many-electron energies. Within this approach,
 the many-electron wavefunction is expanded in terms of Slater determinants
 (or spin-coupled sums of determinants referred to as \acp{CSF}). Variation
 of the \ac{CI} expansion coefficients leads to a matrix eigenvalue problem
-
 \begin{equation}
 \um{H} \vec{c} = E \um{S} \vec{c},
 \end{equation} 
-
 where $\um{H}$ is the matrix representation of the many-electron
 Hamiltonian in the CSF basis, $\um{S}$ is the metric for the CSF basis,
 $E$ is a many-electron energy and $\vec{c}$ is the vector of the
-expansion coefficients or 'CI vector'. The matrix elements of $\um{H}$
+expansion coefficients or CI vector. The matrix elements of $\um{H}$
 and $\um{S}$ are constructed from one- and two-electron integrals
 defined in the single particle basis used to construct the CSFs, and for
-example can be Hartree-Fock states. However, in this treatment of the
-many-electron problem no reference is made to single particle or
+example can be Hartree-Fock states. However, in the CI treatment of the
+many-electron problem, no reference is made to single particle or
 quasiparticle energies. Hence the inclusion of the electrodes into the
 CI problem using electrode self-energies is complicated by the fact that
 the self-energies are functions of the quasiparticle energies on the
 electrodes. To avoid this complication, we employ instead energy-independent
 \acp{CAP} that serve as replacement to the self-energy terms, eliminating
-reference to single particle energies into the resulting \ac{CI} problem.
+reference to single particle energies into the resulting \ac{CI}
+problem~\cite{muga2004, henderson, riss_meyer}.
 Note however, that by opening the system using either electrode self-energies
 or \acp{CAP},  the traditionally Hermitian \ac{CI} generalized eigenvalue
 problem becomes a complex symmetric generalized eigenvalue problem. The
@@ -169,7 +168,6 @@ and right ($\Sigma_R(\omega)$) self-energies. In practice, the complex valued
 self-energies for the electrodes are calculated using the TIMES
 program~\cite{times}. These self-energies are added to the device region
 Hamiltonian $\um{H}_D$ to yield
- 
 \begin{subequations}
 \begin{align}
         [\um{H}_D + \lambda \um{\Sigma_L}(\omega_i^\lambda)
@@ -181,7 +179,6 @@ Hamiltonian $\um{H}_D$ to yield
         \label{eq:adiabaticap}
 \end{align}
 \end{subequations}
-
 where the parameter $\lambda$ is introduced to allow for an adiabatic
 coupling between the electrode states and the extended device region
 'molecular states'.  At $\lambda = 0$, the states on the extended device
@@ -220,24 +217,22 @@ we write
     \label{eq:capsdefUV}
 \end{equation}
 
-which for biorthogonal $\ket{V^\prime_i}$ and $\bra{U^\prime_i}$ will give by
-construction an operator $\um{H}_D + \um{W}$ with the correct eigenvalues
+which for biorthogonal $\ket{V^\prime_i}$ and $\bra{U^\prime_i}$ will by
+construction give an operator $\um{H}_D + \um{W}$ with the correct eigenvalues
 and approximate eigenvectors. In practice we work in the real basis of the
 device region and calculate
-
 \begin{equation}
     \um{W} = \um{S} \um{X} \um{\omega}\um{X}^\dagger - \um{H}_D
     \label{eq:capsdefX}
 \end{equation}
-
 in matrix form, with $\um{S}$ the overlap or metric for the atomic
 orbital basis used to describe the device region, $\um{X}^\dagger$ and
 $\um{X}$ are the matrices of the eigenvectors of device region
-Hamiltonion $\um{H}_D$, and $\um{\omega}$ is the eigenvalue matrix. In
-practice, as the self-energies are independent of the device region for
-a properly defined 'extended device region', the \acp{CAP} are generated
-on the electrodes and then transformed to the molecular orbital basis of
-the device region.
+Hamiltonion $\um{H}_D$, and $\um{\omega}$ is the eigenvalue matrix calculated
+at $\lambda = 1$. In practice, as the self-energies are independent of the
+device region for a properly defined 'extended device region', the \acp{CAP}
+are generated on the electrodes and then transformed to the molecular orbital
+basis of the device region.
 
 % This projection introduces a small amount of inaccuracy, as will be discussed
 % later.
@@ -246,31 +241,27 @@ When applying this approximation to generation of the \ac{CAP}, a
 comparison can be performed against the energy level shifts and broadening
 obtained from explicit calculations using the self-energy. To accomplish
 this comparison, we first calculate the electron transmission through
-the device region using the normal formalism of the Green's function
+the device region using the Green's function
 approach. The calculation is then repeated but in the definition of the
 Green's function $G$ and spectral densities $\Lambda_{L/R}$ the
 self-energy terms are replaced with the \acp{CAP} $\um{W}_{L/R}$ leading
 to the following expressions:
-
 \begin{subequations}
   \begin{align}
-    G^{-1} &= [E\um{S}_0 - (\um{H}_0 + \um{W})], \\
-    \Lambda_{L/R)} &= i \left( \um{W}_{L/R} - \um{W}^\dagger_{L/R)}
+	  \um{G}^{-1} &= [E\um{S}_0 - (\um{H}_0 + \um{W})], \\
+	  \um{\Lambda}_{(L/R)} &= i \left( \um{W}_{(L/R)} - \um{W}^\dagger_{(L/R)}
     \right).
   \end{align}
   \label{eq:glambdadef}
 \end{subequations}
-
 The transmission is then calculated as
-
 \begin{equation}
-  T = \um{Tr} \left[ \Lambda_L G \Lambda_R G^\dagger \right]
+  T = \um{Tr} \left[ \um{\Lambda}_L \um{G} \um{\Lambda}_R \um{G}^\dagger \right]
   \label{eq:transmfromG}
 \end{equation}
-
-whith the \acp{CAP} playing the role of the electrode self-energies.
+with the \acp{CAP} playing the role of the electrode self-energies.
 The comparison obtained in this manner is shown in
-figure~\ref{fig:transdat} revealing that the \ac{CAP} provides an
+fig.~\ref{fig:transdat} revealing that the \ac{CAP} provides an
 accurate energy-independent representation of the self-energies and in
 particular, good agreement is achieved on the energy range around the
 \ac{HOMO}-\ac{LUMO} gap of interest for subsequent investigations.
@@ -286,19 +277,19 @@ particular, good agreement is achieved on the energy range around the
 	\label{fig:transdat}
 \end{figure}
 
-\subsection{Complex Monte Carlo Configuration Interaction}
+\subsection{Complex Symmetric \ac{CI} Problem}
 
 All \ac{CI} calculations  performed use a version of the \ac{MCCI}
 program~\cite{mcci1995, mcci1998} modified to treat the complex
 symmetric generalized eigenvalue problem that arises when adding the
-\ac{CAP}s as a one-body operator to the many-electron Coulomb
+\ac{CAP} as a one-body operator to the many-electron Coulomb
 Hamiltonian used to describe the extended device region and its
 interaction with the elecrodes. \ac{MCCI} uses a Lanczos method for
 matrix diagonalization and in the newest version of the program the
-projection method outlined in~\cite{tarantelli_csd} is introduced to
+projection method outlined in ref.~\cite{tarantelli_csd} is introduced to
 solve the complex symmetric generalized eigenvalue problem. \ac{MCCI}
 computes energy estimates by an iterative process, starting from a set
-of \acp{CSF} (which initially may be a single Slater determinant).
+of \acp{CSF} (which initially may be a single \ac{CSF}).
 Relative to the trial vector, additional \acp{CSF} are randomly
 generated by single and double excitations relative the \acp{CSF} in the
 trial vector. The \ac{CI} matrix diagonalization problem is solved on
@@ -306,9 +297,9 @@ the subspace defined by the resulting expanded vector. This vector is
 then screened or 'pruned' by removing \acp{CSF} whose associated coefficient
 in the \ac{CI} eigenvector has a magnitude lower than a given coefficient
 threshold. This 'pruned' vector serves as trial vector for the generation of
-a new set of randomly generated \acp{CSF}, and the process is repeated until
-convergence is reached. Details of the \ac{MCCI} method may be found
-in refs.~\cite{mcci1995,mcci1998,mcci2000,multiref}.
+a new set of randomly generated \acp{CSF}, and this sequence is repeated until
+convergence in the energy and CI vector length is reached. Details of the
+\ac{MCCI} method may be found in refs.~\cite{mcci1995,mcci1998,mcci2000,multiref}.
 
 The use of \ac{MCCI} in the present study allows us to follow the
 evolution of quasiparticle energies as electron correlations are
@@ -319,18 +310,18 @@ selection threshold. As the coefficient selection threshold is reduced,
 more \acp{CSF} are included in the calculations leading to a more highly
 correlated model.
 
-\subsection{Complex Quasiparticle Energies}
+\subsection{Quasiparticle Energies}
 
 From a many-electron standpoint, energy differences between
 many-electron states determine quasiparticle excitations, as well as
-electron affinities and ionization energies or addition and substraction
-energies, respectively. In this study, we focus on the electron
+electron affinities and ionization energies, or addition and substraction
+energies respectively. In this study, we focus on the electron
 affinities and ionization potentials of the {\it explicit} device
-region. For example, the the electron affinity is given by the
-difference in energies for the $N$-particle state $E^N$ and the
+region. For example, the electron affinity is given by the
+difference in energies for the $N$-electron state $E^N$ and the
 $(N+1)$-particle state $E^{N+1}$
 \begin{equation}
-\omega_{\rm EA} = E^{N+1} -E^N
+\omega_{\rm EA} = E^{N+1} -E^N,
 \end{equation}
 and similarly the ionization potential
 \begin{equation}
@@ -340,17 +331,17 @@ is the energy difference between the $N-1$ and $N$ many-electron states.
 Through the introduction of \acp{CAP}, the device region becomes an open
 system resulting in complex many-electron energies. Hence the
 quasiparticles energies $\omega$ are complex. It is the real energy
-shift and imaginary lifetime due to the opening of the system as well
-as due to the introduction of electron correlations which we study for
+shift and imaginary lifetime due to the opening of the system, as well
+as due to the introduction of electron correlations, which we study for
 the molecular device states.
 From the transmission calculations on our model using a scattering Green's
 function approach, the transmission of the states that evolve from the
 uncoupled device states is determined. It is found that these states have
 transmission values close to unity and their lineshapes can be roughly
 approximated by a Lorentzian profile (there is some indication of Fano-type
-resonances indicating that there is a degree of coupling between left and
-right electrodes, but these effects are small and do not influence our
-results). Thus in order to compare to transmission spectra obtained from the
+resonances indicating that there is a degree of coupling between 
+electrodes, but these small effects do not influence our analysis). Thus in
+order to compare to transmission spectra obtained from the
 single-particle scattering Green's function calculations picture, we construct
 Lorentzian peaks from the complex quasiparticles $\omega_i$:
 \begin{equation}
@@ -361,32 +352,31 @@ Lorentzian peaks from the complex quasiparticles $\omega_i$:
         \label{eq:lobro}
 \end{equation}
 where $\Gamma = 2 \operatorname{Im}(\omega_i)$ is the lifetime of the
-quasiparticle (i.e. the width of the Lorentzian peak).
+quasiparticle (i.e., the width of the Lorentzian peak).
 
 \section{Results and Discussion}
 \label{sec:results}
 
-\subsection{Single-Particle Picture}
+\subsection{\ac{CAP} Validation}
 \label{subsec:SingleParticle}
 
-As a validation of the \ac{CAP} approach, we would first like to see whether
-the \ac{CAP} as generated according to the description of
-section~\ref{subsec:CAP} gives the correct complex single-particle eigenvalues,
-i.e. whether the selected self-consistent solutions of the Dyson
-equations~\ref{eq:adiabaticap} provide an accurate picture of the resonances
-in the device region. To do this, we construct Lorentzian peaks from the
-eigenvalues, and compare to a transmission spectrum of the device obtained
-using the self-energy in the \ac{NEGF} formalism. Such a comparison is shown in
-figure~\ref{fig:13evals}.
-
+As a validation of the \ac{CAP} approach, we first consider if
+the \ac{CAP} as generated according to the method given in
+section~\ref{subsec:CAP} results in the correct complex single-particle
+eigenvalues.
+For comparison we construct Lorentzian peaks determined by the complex
+eigenvalues obtained for the \acp{CAP}, and compare to the transmission
+spectrum of the device obtained using explicit self-energies and a scattering
+calculation; the results of the comparison are shown in fig.~\ref{fig:13evals}.
 This is a case of weak coupling, as can be seen by the narrowness of the
 transmission peaks, and by the fact that they are not significantly shifted
-from the real-valued Hartree-Fock single-particle levels. The agreement between
-the Green function transmission (red) and the peaks derived from the
-eigenvalues of $\um{H}_0 + \um{W}$ (green) is excellent, both in terms of
-position (real part) and width (imaginary part). In the inset, the region
-around the \ac{HOMO} is plotted in detail, showing the extent of the agreement
-between the two methods (the green and red curves practically overlap).
+from the real-valued Hartree-Fock single-particle levels. %Jim wants this out?
+The agreement between the Green function transmission (red) and the peaks
+derived from the eigenvalues of $\um{H}_0 + \um{W}$ (green) is excellent,
+both in terms of position (real part) and width (imaginary part). In the inset,
+the region around the \ac{HOMO} is plotted in detail, showing the extent of
+the agreement between the two methods (the green and red curves effectively
+overlap for the energy scales we will consider).
 
 \begin{figure} 
 	\begin{center}
@@ -396,7 +386,8 @@ between the two methods (the green and red curves practically overlap).
 	broadened complex eigenvalues of $\um{H}_0 + \um{W}$ (green) for a
 	model system as described in section~\ref{subsec:modelsystem}, with
 	device-lead gap of 0.45 nm. Transmission data was obtained from
-	\ac{NEGF} calculations with the TIMES program~\cite{times}.
+	scattering calculations using a Green's functions formalism and
+	explicit electrode self-energies.
 	The inset shows a close-up view of the \ac{HOMO}, with the HF \ac{HOMO}
 	shown in blue for reference.
 	}
@@ -410,15 +401,15 @@ The next step is to pass to the many-body picture, initially representing the
 many-body wave function of the system as a single Slater determinant. The
 quasiparticle peaks in the transmission spectrum are approximated by taking
 differences of many-body energies: $E^N - E^{N-1}$ yields the \ac{HOMO}, while
-likewise $E^{N+1} - E^N$ yields the \ac{LUMO} (other quasiparticle levels can be
-obtained by taking differences of excited many-body energies). The peaks for
-the \ac{HOMO} and \ac{LUMO} of the system obtained in this way are plotted in
-figures~\ref{fig:nobranch45A} and \ref{fig:nobranch40A}. There is good
-correspondence in the position of the peaks, but the single determinant
-difference peaks are significantly broader than their transmission spectrum
-counterparts. The only difference with the single-particle eigenvalue picture
-previously shown is that now, as mentioned earlier, we have projected the
-eigenvectors into the $\um{X}$ basis (eigenbasis of $\um{H}_0$) instead of
+likewise $E^{N+1} - E^N$ yields the \ac{LUMO} (quasiparticle excitation spectra
+can be obtained by taking differences of excited state many-body energies).
+The peaks for the \ac{HOMO} and \ac{LUMO} of the system obtained in this way
+are plotted in figures~\ref{fig:nobranch45A} and \ref{fig:nobranch40A}.
+There is good correspondence in the position of the peaks, but the single
+determinant difference peaks are significantly broader than their transmission
+spectrum counterparts. The only difference with the single-particle eigenvalue
+picture previously shown is that now, as mentioned earlier, we have projected
+the eigenvectors into the $\um{X}$ basis (eigenbasis of $\um{H}_0$) instead of
 representing them in their natural basis $\um{U}$ (left eigenbasis of
 $\um{H}_0 + \um{W}$).
 % The reason for this is that our \ac{CI} code is constrained to work with a real
