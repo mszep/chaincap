@@ -392,120 +392,88 @@ overlap for the energy scales we will consider).
 	\label{fig:13evals}
 \end{figure}
 
-\subsection{Single Determinant}
-\label{subsec:SingleDeterminant}
+\section{Many-Body Analysis}
 
-The next step is to pass to the many-body picture, initially representing the
-many-body wave function of the system as a single Slater determinant. The
-quasiparticle peaks in the transmission spectrum are approximated by taking
-differences of many-body energies: $E^N - E^{N-1}$ yields the \ac{HOMO}, while
-likewise $E^{N+1} - E^N$ yields the \ac{LUMO} (quasiparticle excitation spectra
-can be obtained by taking differences of excited state many-body energies).
-The peaks for the \ac{HOMO} and \ac{LUMO} of the system obtained in this way
-are plotted in figures~\ref{fig:nobranch45A} and \ref{fig:nobranch40A}.
-There is good correspondence in the position of the peaks, but the single
-determinant difference peaks are significantly broader than their transmission
-spectrum counterparts. The only difference with the single-particle eigenvalue
-picture previously shown is that now, as mentioned earlier, we have projected
-the eigenvectors into the $\um{X}$ basis (eigenbasis of $\um{H}_0$) instead of
-representing them in their natural basis $\um{U}$ (left eigenbasis of
-$\um{H}_0 + \um{W}$).
-% The reason for this is that our \ac{CI} code is constrained to work with a real
-% basis of MOs.
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=0.9\linewidth]{figures/nobrsingles45A.eps}
-	\end{center}
-	\caption{4.5A system: Comparison of the transmission from Green
-                 functions (red) to the Lorentzian peaks obtained by
-                 subtracting single-determinant many-body energies (green).}
-	\label{fig:nobranch45A}
-\end{figure}
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=0.9\linewidth]{figures/nobrsingles40A.eps}
-	\end{center}
-	\caption{4.0A system: Comparison of the transmission from Green
-                 functions (red) to the Lorentzian peaks obtained by
-                 subtracting single-determinant many-body energies (green).}
-	\label{fig:nobranch40A}
-\end{figure}
-
-\subsection{Single Excitations}
-\label{subsec:singles}
-
-The next step is to include, for each state, the reference determinant plus all
-its single excitations. By Thouless' theorem~\cite{Thouless}, to first order in
-the coefficients of the non-reference \acp{CSF}, the wave function obtained by
-diagonalizing in this space would still be describable as a single determinant
-(and thus, by definition, contain no correlation), but by adding degrees of
-freedom to the system, a degree of self-consistency is attained. This is similar
-to a $\Delta$-SCF calculation, where many-body energies of different particle
-number are compared at the SCF level.
-
-We make a distinction between two types of ``singles'' \ac{CI} vectors: for the
-``molecule'' calculations, the \ac{CI} space was truncated to contain only
-excitations from and to MOs of the molecule (this set was found by comparing
-the real parts of the complex eigenvalues $\omega_i$ with the positions of the
-peaks of the respective transmission spectrum). The ``device region''
-calculations contain the full singles \ac{CI} vector, i.e. all single
-excitations plus the reference determinant. The results are also plotted in
-figures~\ref{fig:nobranch45A} and \ref{fig:nobranch40A}.
-
-We see a similar behavior across the two systems studied, in that including
-(single) excitations to the leads lowers the quasiparticle gap relative to the
-case where only device excitations are included. The most interesting feature
-in these plots is the large width for the \ac{LUMO} peak at the
-``device region'' singles level for the 4.0A system
-(figure~\ref{fig:nobranch40A}). This can be directly related to the fact that
-the $N+1$-electron state in this case has two dominant \acp{CSF}, one of which
-is a lead state, whereas in the ``molecule'' CI singles case (and also in
-both cases for the 4.5A system) the $N+1$-electron state has only one dominant
-\ac{CSF}, namely the one with the added electron in the device \ac{LUMO}.
-
-\subsection{Complex \ac{CI}}
-
-We now move on to the \ac{CI} results, where the criterion for inclusion of a
-\ac{CSF} in the \ac{CI} vector is simply its coefficient in the wave function,
-and the threshold is a program parameter which can be varied to include a given
-amount of correlation. The results for both systems have been plotted together,
-in figure~\ref{fig:cihomo} for the \ac{HOMO}, and figure~\ref{fig:cilumo}
-for the \ac{LUMO}. Note that here, in the case of the ``device region''
-calculations, the QP gap widens as compared to the HF case, in contrast to the
-CI Singles cases discussed earlier. It would also seem to contradict previous
-work which indicated that screening effects on the metal leads renormalize the
-levels of the device, leading to lower gaps~\cite{thygesen_rubio, thygesen}.
-This behaviour persists however, in \ac{CI} calculations performed on the
-system in absence of a \acp{CAP}, indicating that this is a physical effect.
-
-As can be seen in the figures, the \ac{CI} gap is slightly smaller than the HF
-gap, and decreases with increasing correlation, consistent with the HF and GW
-results in~\cite{thygesen_rubio, thygesenrubio2010corr}. In both cases the peak
-widths are larger than the corresponding transmssion (HF) peaks, but similar
-to the single excitations peaks, indicating that the broadening is accurately
-captured at the level of single excitations.
+We start our analysis by considering the more weakly coupled system (45
+nm separation). The transmission curves obtained for the \ac{HOMO} at
+different levels of theory are plotted in figure~\ref{fig:all45A}. Firstly,
+we can represent the wave function as a single determinant. Since the
+only difference between this and the single particle case described above
+is the basis, it is not surprising to see good agreement, especially in
+the position of the peak. Next, we can approximate the wave function by
+taking the same reference determinant as above, and also including all
+of its single excitations. We can expect that the results from this are
+analogous to a delta-SCF procedure, since by Thouless' theorem
+\cite{Thouless} this can be described as a single determinant in a
+different basis. Finally, we can include more correlations by running
+the mcci procedure, first at cmin=3e-3, and then at cmin=1e-3, which
+generally corresponds to moderate correlation. As expected from chemical
+intuition, CI singles gives the smallest gap and single determinants the
+largest, with the correlated peaks in the middle and the gap closing with
+increasing correlation. The width of the peaks in the different many-body
+approximations stays nearly constant, implying that broadening (in this
+case corresponding to a state lifetime of approximately
+$7 \times 10^{-14}$ s for the \ac{HOMO} and $3 \times 10^{-14}$ s for
+the \ac{LUMO}) is accurately captured at the SCF (single determinant)
+level for this system.
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.9\linewidth]{figures/cihomo.eps}
+		\includegraphics[width=0.9\linewidth]{figures/all45A.eps}
 	\end{center}
-	\caption{CI for the \ac{HOMO} of the 0.45 (top) and 0.40 nm (middle)
-                 systems, with the Density of States of the leads plotted
-                 below.}
-	\label{fig:cihomo}
+	\caption{''Molecule'' cmcci peaks (45A system)}
+	\label{fig:all45A}
 \end{figure}
 
+We now repeat the analysis for the more strongly coupled system, results
+of which are plotted in figure~\ref{fig:all40A}. The same picture emerges,
+with the CI singles case having the smallest gap, and the single determinant
+the largest, although at the \ac{HOMO} now the weakly correlated (cmin=3e-3)
+case overlaps with the single determinant case. However, when decreasing
+the cmin parameter (increasing correlation), the peak shifts back up,
+reducing the gap. With respect to the broadenings, we see a similar
+picture as for the previous system; increasing correlation has no
+significant effect on the level broadening.
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.9\linewidth]{figures/cilumo.eps}
+		\includegraphics[width=0.9\linewidth]{figures/all40A.eps}
+	\end{center}
+	\caption{''Molecule'' cmcci peaks (40A system)}
+	\label{fig:all40A}
+\end{figure}
+
+Finally, we investigate the effect of including excitations on the leads.
+Until this point, we have always constrained our CI space to \acp{CSF}
+which represent excitations from and to orbitals localized on the molecule.
+Lead excitations have been previously shown to have significant effects
+on current flow through two-level model systems
+\cite{galperin_nitzan2006leadexcitations}. 
+The first notable feature in this case (see figure~\ref{fig:cidevregion})
+is found in the CI singles case, where the \ac{LUMO} peak is much broader
+than all other peaks studied (state lifetime of $5 \times 10^{-15}$ s).
+This can be directly related to the fact that the $N+1$-electron state
+contains two (instead of one) significant CSFs, one of which has the extra
+electron in a lead orbital (This does not happen in any of the other cases
+we studied).
+
+Upon including more CSFs with the mcci procedure, we see a quantitative
+difference from the ''molecule'' analysis above; the QP gap widens, mainly
+due to the rising of the \ac{LUMO} up to around $-2.5$ eV in both systems.
+Also, the broadness of the \ac{LUMO} peak for the 4.0A separated system
+is mitigated in the CI calculation (leading to a lifetime of
+$1 \times 10^{-17}$ s). This can be traced back to the fact that we go
+back to having only one significant CSF in the associated $N+1$-electron
+CI vector.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.9\linewidth]{figures/cidevregion.eps}
 	\end{center}
 	\caption{CI for the \ac{LUMO} of the 0.45 (top) and 0.40 nm (middle)
                  systems, with the Density of States of the leads plotted
                  below.}
-	\label{fig:cilumo}
+	\label{fig:cidevregion}
 \end{figure}
 
 \section{Conclusions}
