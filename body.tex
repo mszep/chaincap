@@ -160,47 +160,44 @@ from the energy-dependant self-energy is discussed in detail
 in~\cite{henderson}, and we briefly cover the essential points needed
 for the generation of the \ac{CAP} in the following.
 
-We first consider two electrodes described by known left $\Sigma_L(\omega)$
-and right $\Sigma_R(\omega)$ self-energies. In practice, the complex valued
-self-energies for the electrodes are calculated using the TiMeS
-program~\cite{times}. These self-energies are added to the single particle
-Hamiltonian on the device region, $\um{H}_D$, to yield
+We first consider a system with bare Hamiltonian $\um{H}_0$ in the
+Hartree-Fock approximation, coupled to two electrodes described by known
+left $\um{\Sigma}_L(\omega)$ and right $\um{\Sigma}_R(\omega)$ self-energies.
+These self-energies are added to the single particle
+Hamiltonian to yield
 \begin{eqnarray}
 \label{eq:capseq}
-        [\um{H}_D + \lambda \um{\Sigma_L}(\omega_i^\lambda)
+        [\um{H}_0 + \lambda \um{\Sigma_L}(\omega_i^\lambda)
             +\lambda \um{\Sigma_R}(\omega_i^\lambda)] \ket{U_i^\lambda}
         &= \omega_i^\lambda \ket{U_i^\lambda} \\
-        \bra{V_i^\lambda} [\um{H}_D + \lambda \um{\Sigma_L}(\omega_i^\lambda)
+        \bra{V_i^\lambda} [\um{H}_0 + \lambda \um{\Sigma_L}(\omega_i^\lambda)
             +\lambda \um{\Sigma_R}(\omega_i^\lambda)]
         &= \omega_i^\lambda \bra{V_i^\lambda},
         \label{eq:adiabaticap}
 \end{eqnarray}
 where the parameter $\lambda$ is introduced to allow for an adiabatic
-coupling between the electrode states and the extended device region
-`molecular states'.  At $\lambda = 0$, the states on the extended device
-region are obtained as described by eigenvectors $\ket{X_i}$ (that may
-be chosen real) and real eigenvalues $\varepsilon_i$. As $\lambda$ is
-increased the device region and electrode single particle states begin
-to couple until at $\lambda=1$, the Hartree-Fock states for the open
-system are given by the complex energies $\omega_i$, right eigenvectors
-$\ket{U_i}$ and left eigenvectors $\bra{V_i}$; the left and right
-eigenvectors are a consequence of introducing the complex valued
-self-energies into the eigenvalue problem. The introduction of the
-adiabatic coupling of the self-energies permits us to `label' the
-molecular states and to follow their evolution as the system is opened.
-This allows us to use the prescription given in the following to
-calculate an \ai \ac{CAP} by selecting those eigenvalues that correspond
-to the uncoupled device region states. At $\lambda=1$, the real part of
-$\omega_i$ gives the energy of the $i$th resonance including the shift due
-to electrode coupling and the imaginary part gives the level broadening.
+transition between eigenstates $\ket{X_i}$ of $\um{H}_0$ at $\lambda = 0$,
+and the true, finite-lifetime resonant states of the system at
+$\lambda = 1$. The Hartree-Fock states for the open system are given by
+the complex energies $\omega_i$, right eigenvectors $\ket{U_i}$ and left
+eigenvectors $\bra{V_i}$; distinct left and right eigenvectors are a
+consequence of introducing the complex symmetric self-energy matrices into
+the eigenvalue problem.
+The adiabatic introduction of the self-energies permits
+us to `label' the molecular states and to follow their evolution as the
+system is opened. This allows us to select those eigenstates (and
+eigenvalues) of the coupled system that correspond to states of the
+uncoupled device region. At $\lambda=1$, the real part of $\omega_i$
+gives the energy of the $i$th resonance including the shift due to
+electrode coupling and the imaginary part gives the level broadening.
 
 The goal is to build an energy-independent complex potential
 $\um{W} = \um{W_L} + \um{W_R}$
-such that the Hamiltonian $\um{H}_D + \um{W}$ has the same eigenvalues
+such that the Hamiltonian $\um{H}_0 + \um{W}$ has the same eigenvalues
 as when calculated using the explict self-energies. Such a Hamiltonian is
 not readily constructed as when we select the different $\omega_i$, we are
 as a consequence selecting different Hamiltonians
-$\um{H}_D + \um{\Sigma_L}(\omega_i) + \um{\Sigma_R}(\omega_i)$
+$\um{H}_0 + \um{\Sigma_L}(\omega_i) + \um{\Sigma_R}(\omega_i)$
 and the biorthogonality for the left and right eigenvectors does not
 necessarily hold ($\bracket{V_i}{U_j} \ne \delta_{ij}$). We consider instead
 constructions which yield eigenvalues that approximate the $\omega_i$  and
@@ -208,25 +205,27 @@ eigenvectors that approximate the left and right eigenvectors while
 satisifying biorthogonality. Given such a set of approximate eigenvectors
 we write
 \begin{equation}
-    \um{W} = \sum_i  \ket{U^\prime_i} \omega_i \bra{V^\prime_i} - \um{H}_D
+    \um{W} = \sum_i  \ket{U^\prime_i} \omega_i \bra{V^\prime_i} - \um{H}_0
     \label{eq:capsdefUV}
 \end{equation}
 which for biorthogonal $\ket{V^\prime_i}$ and $\bra{U^\prime_i}$ will by
-construction give an operator $\um{H}_D + \um{W}$ with the correct eigenvalues
+construction give an operator $\um{H}_0 + \um{W}$ with the correct eigenvalues
 and approximate eigenvectors. In practice we work in the real basis of the
 device region and calculate
 \begin{equation}
-    \um{W} = \um{S} \um{X} \um{\omega}\um{X}^\dagger - \um{H}_D
+    \um{W} = \um{S} \um{X} \um{\Omega}\um{X}^\dagger - \um{H}_0
     \label{eq:capsdefX}
 \end{equation}
-in matrix form, with $\um{S}$ the overlap or metric for the atomic
-orbital basis used to describe the device region, $\um{X}^\dagger$ and
-$\um{X}$ are the matrices of the eigenvectors of device region
-Hamiltonion $\um{H}_D$, and $\um{\omega}$ is the eigenvalue matrix
-calculated at $\lambda = 1$. In practice, as the self-energies are
-independent of the device region for properly defined electrodes and
-extended device region, the \acp{CAP} are generated on the electrodes
-and then transformed to the molecular orbital basis of the device region.
+in matrix form, where $\um{S}$ is the overlap or metric for the atomic
+orbital basis used to describe the system, $\um{X}$ is the matrix of the
+eigenvectors of the Hamiltonian $\um{H}_0$, and $\um{\Omega}$ is a
+diagonal matrix with the eigenvalues $\omega_i$ calculated at
+$\lambda = 1$ along the diagonal.
+In practice, since the self-energiy is a property of the electrode only
+(for properly defined electrodes and device regions), the \acp{CAP} are
+generated on a single unit cell of the lead, and then transformed to the
+molecular orbital basis of the device region, which contains a lead unit
+cell on either side.
 
 A comparison can be performed for this approximation of a \ac{CAP} 
 against the energy level shifts and broadening
@@ -243,7 +242,8 @@ to the following expressions:
     \right).
   \label{eq:glambdadef}
 \end{eqnarray}
-The transmission is then calculated as
+($\um{H}_D$ is the Hamiltonian of the extended device region.) The
+transmission is then calculated as
 \begin{equation}
   T = \um{Tr} \left[ \um{\Lambda}_L \um{G} \um{\Lambda}_R \um{G}^\dagger \right]
   \label{eq:transmfromG}
