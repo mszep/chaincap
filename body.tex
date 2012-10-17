@@ -168,6 +168,7 @@ Hartree-Fock approximation, coupled to two electrodes described by known
 left $\um{\Sigma}_L(\omega)$ and right $\um{\Sigma}_R(\omega)$ self-energies.
 These self-energies are added to the single particle
 Hamiltonian to yield
+\numparts
 \begin{eqnarray}
 \label{eq:capseq}
         [\um{H}_0 + \lambda \um{\Sigma_L}(\omega_i^\lambda)
@@ -178,6 +179,7 @@ Hamiltonian to yield
         &= \omega_i^\lambda \bra{V_i^\lambda},
         \label{eq:adiabaticap}
 \end{eqnarray}
+\endnumparts
 where the parameter $\lambda$ is introduced to allow for an adiabatic
 transition between eigenstates $\ket{X_i}$ of $\um{H}_0$ at $\lambda = 0$,
 and the true, finite-lifetime resonant states of the system at
@@ -240,16 +242,18 @@ approach. The calculation is then repeated but in the definition of the
 Green's function ${\bf G}$ and spectral densities ${\bf \Lambda}_{L/R}$ the
 self-energy terms are replaced with the \acp{CAP} $\um{W}_{L/R}$ leading
 to the following expressions:
+\numparts
 \begin{eqnarray}
-	  \um{G}^{-1} &= [E\um{S} - (\um{H}_D + \um{W})], \\
-	  \um{\Lambda}_{(L/R)} &= i \left( \um{W}_{(L/R)} - \um{W}^\dagger_{(L/R)}
+	  \um{G}^{-1} = [E\um{S} - (\um{H}_D + \um{W})], \\
+	  \um{\Lambda}_{(L/R)} = \rmi \left( \um{W}_{(L/R)} - \um{W}^\dagger_{(L/R)}
     \right).
   \label{eq:glambdadef}
 \end{eqnarray}
+\endnumparts
 ($\um{H}_D$ is the Hamiltonian of the extended device region.) The
 transmission is then calculated as
 \begin{equation}
-  T = \um{Tr} \left[ \um{\Lambda}_L \um{G} \um{\Lambda}_R \um{G}^\dagger \right]
+  T = \Tr \left[ \um{\Lambda}_L \um{G} \um{\Lambda}_R \um{G}^\dagger \right]
   \label{eq:transmfromG}
 \end{equation}
 where the \acp{CAP} play the role of the electrode self-energies.
@@ -402,6 +406,7 @@ related to the quality of an electronic structure description for transport
 calculations~\cite{golden}. For example, the electron affinity is given
 by the difference in energies for the $N$-electron state $E^N$ and the
 $(N+1)$-electron state $E^{N+1}$
+\numparts
 \begin{equation}
 \label{eq:EA}
 \omega_{\rm EA} = E^{N+1} -E^N,
@@ -411,6 +416,7 @@ and similarly the ionization potential
 \label{eq:IP}
 \omega_{\rm IP} =  E^N - E^{N-1}
 \end{equation}
+\endnumparts
 is the energy difference between the $(N-1)$- and $(N)$-electron states.
 The inclusion of the set of singly excited configurations allows a
 comparison on the explicit device region between a Koopmans approximation 
