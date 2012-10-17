@@ -1360,10 +1360,10 @@ FUNCTION {article}
       format.pages output
     }
   if$
-  format.issn output
-  format.note output
-  format.eprint output
-  format.url output
+ %format.issn output    % mszepieniec changed these
+ %format.note output
+ %format.eprint output
+ %format.url output
   fin.entry
 }
 FUNCTION {book}
