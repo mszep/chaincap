@@ -410,7 +410,7 @@ and similarly the ionization potential
 is the energy difference between the $(N-1)$- and $(N)$-electron states.
 The inclusion of the set of singly excited configurations allows a
 comparison on the explicit device region between a Koopmans approximation 
-(no orbital relaxation) and a $\Delta$SCF approximation (inclusion of
+(no orbital relaxation) and a \dscf approximation (inclusion of
 orbital relaxations).  For example, in the transmission displayed in
 fig.~\ref{fig:transdat}, the resonances correpsond to the eigenvalues of
 the $N$ particle Fock matrix that are shifted in energy and broadened due
@@ -426,7 +426,7 @@ all other electrons can relax on the extended device region as the charge
 state is changed. As Thouless' theorem tells us that the CI singles
 energies $E^{N-1}$ and $E^{N+1}$ are approximations to the optimized
 single determinant energies with orbital relaxations for the device region,
-the EAs and IPs eqs.~\ref{eq:EA} and \ref{eq:IP} correspond to a $\Delta$SCF
+the EAs and IPs eqs.~\ref{eq:EA} and \ref{eq:IP} correspond to a \dscf
 approximation. 
 
 Two types of CI singles approximations are considered. The first set are
@@ -473,7 +473,7 @@ excitations, we see the HOMO peak shifts upward in energy by 288 meV and
 the LUMO peak shifts downward in energy by 260 meV as seen in the blue
 curves within figs.~\ref{fig:all45Ahomo} and \ref{fig:all45Alumo}, hence
 the overestimation of the bandgap typical of the Hartree-Fock approximation
-is compensated for this approximate $\Delta$SCF calculation.
+is compensated for this approximate \dscf calculation.
 The electron lifetimes decrease substantially relative to the Koopmans
 states with the HOMO state lifetime becoming 59 fs and the LUMO state
 becoming 17 fs when self-consistency is allowed, indicating an increased
@@ -486,11 +486,11 @@ but still only using molecule-like excitations, further reduces the energy
 of HOMO resonance and slightly lowers the resonance peak of the LUMO.
 These findings for the weakly coupled molecular state are consistent with
 typical findings for molecular systems: the Koopmans EAs and IPs are 
-underestimated and overestimated, respectively, whereas the $\Delta$SCF
+underestimated and overestimated, respectively, whereas the \dscf
 procedure tends to overestimate and underestimate EAs and IPs, respectively.
 Introducing electron correlations then renormalizes the funamental gap
 with the correlated energies for the HOMO and LUMO states bracketed by
-the Koopmans and $\Delta$SCF estimates.
+the Koopmans and \dscf estimates.
 Hence in the weakly coupled case and including only excitations to and
 from molecule-like orbitals, we find that the molecular region behaves
 very much like an isolated molecule, with the additional features of an
@@ -502,21 +502,21 @@ broadens the resonance peaks as shown in figs.~\ref{fig:all45Ahomo} and
 Improving the approximation to the quasiparticle states by allowing an
 increased description of electron correlations introduces significant
 energy shifts to the resonance peaks but is found not to substantially
-change the broadening relative to the $\Delta$SCF resonances.
+change the broadening relative to the \dscf resonances.
 
 Next, the effect of stronger coupling is considered by reducing the gap
 between the electrodes and molecular regions to 0.40 nm.
 A similar behavor is seen as compared to the weaker coupling case. The
-$\Delta$SCF approximation again shifts the energies of the HOMO and LUMO
+\dscf approximation again shifts the energies of the HOMO and LUMO
 resonances reducing the energy gap, and the state broadening relative to
 the Koopmans resonances is significantly altered with state lifetimes
 decreasing to approximately 17 fs from 71 fs, and to 7 fs from 26 fs for
 the HOMO and LUMO, respectively.
 Again it is found that increasing correlation shifts the energies of the
 resonances but does not significantly alter the lifetime broadening beyond
-that introduced at the $\Delta$SCF level. Introducing electron correlations
+that introduced at the \dscf level. Introducing electron correlations
 again renormalizes the energy gap, with the correlated resonant states
-bracketed by the Koopmans and $\Delta$SCF values.
+bracketed by the Koopmans and \dscf values.
 
 \begin{figure}
 	\begin{center}
@@ -525,7 +525,7 @@ bracketed by the Koopmans and $\Delta$SCF values.
 	\caption{HOMO region quasiparticle peaks of the 0.45 nm separated
 	         system, with excitations restricted to the `molecule' region,
 		 at different levels of theory: HF + self-energy (red),
-		 $\Delta$SCF (green), and MCCI with threshold parameters of
+		 \dscf (green), and MCCI with threshold parameters of
 		 0.003 (blue) and 0.001 (magenta).}
 	\label{fig:all45Ahomo}
 \end{figure}
@@ -537,7 +537,7 @@ bracketed by the Koopmans and $\Delta$SCF values.
 	\caption{LUMO region quasiparticle peaks of the 0.45 nm separated
 	         system, with excitations restricted to the `molecule' region,
 		 at different levels of theory: HF + self-energy (red),
-		 $\Delta$SCF (green), and MCCI with threshold parameters of
+		 \dscf (green), and MCCI with threshold parameters of
 		 0.003 (blue) and 0.001 (magenta).}
 	\label{fig:all45Alumo}
 \end{figure}
@@ -549,7 +549,7 @@ bracketed by the Koopmans and $\Delta$SCF values.
 	\caption{HOMO region quasiparticle peaks of the 0.40 nm separated
 	         system, with excitations restricted to the `molecule' region,
 		 at different levels of theory: HF + self-energy (red),
-		 $\Delta$SCF (green), and MCCI with threshold parameters of
+		 \dscf (green), and MCCI with threshold parameters of
 		 0.003 (blue) and 0.001 (magenta).}
 	\label{fig:all40Ahomo}
 \end{figure}
@@ -561,7 +561,7 @@ bracketed by the Koopmans and $\Delta$SCF values.
 	\caption{LUMO region quasiparticle peaks of the 0.40 nm separated
 	         system, with excitations restricted to the `molecule' region,
 		 at different levels of theory: HF + self-energy (red),
-		 $\Delta$SCF (green), and MCCI with threshold parameters of
+		 \dscf (green), and MCCI with threshold parameters of
 		 0.003 (blue) and 0.001 (magenta).}
 	\label{fig:all40Alumo}
 \end{figure}
@@ -583,12 +583,12 @@ the results are displayed in the top pane of \fref{fig:cidevregion}.
 Since self-consistency is introduced by approximating Thouless' theorem
 with all single excitiations on the extended device region, the energy gap
 between HOMO and LUMO narrows with respect to the Koopmans values, as
-previously was the case. However, in this case the $\Delta$SCF results
-in much larger energy shifts with respect to a $\Delta$SCF approximation
+previously was the case. However, in this case the \dscf results
+in much larger energy shifts with respect to a \dscf approximation
 relying on excitations from only molecule-like orbitals. There is also a
 significant difference in the resonant broadening, the HOMO state lifetime
 decreases from the Koopmans estimate of 223 fs to 18 fs as obtained from
-the $\Delta$SCF approximation. 
+the \dscf approximation. 
 However, much less resonant broadening is seen in this example for the
 LUMO state, with a lifetime of 85 fs from the HF + self-energy approximation
 and 121 fs from the $\Delta$SF calculation. The results of introducing
@@ -598,18 +598,18 @@ renormalization of the energy gap is seen.
 {\bf I thought renormalization always meant a narrowing of the gap?}
 However, as electrode excitations are allowed to couple to the
 molecule-like excitations, the correlated HOMO and LUMO resonance energies
-are no longer bracketed by the HF + self-energy and $\Delta$SCF peaks.
+are no longer bracketed by the HF + self-energy and \dscf peaks.
 There is also a difference in the behavior for the HOMO and LUMO resonances.
 For the HOMO peak, the lifetime stays approximately the same as in the
 $Delta$SCF approximation whereas electron correlations broaden the LUMO
-peak from a lifetime of 121 fs from the $\Delta$SCF approximation to 21
+peak from a lifetime of 121 fs from the \dscf approximation to 21
 fs. 
 
 As the electrode-molecule distance is reduced to 0.40 nm, the increased
 coupling in combination with the inclusion of electrode excitations
 introduces quantitatively and qualitatively different behavior compared
 to all previous cases we have studied. Including the electrode interactions
-with the $\Delta$SCF approximation as for the 0.45 nm coupling case,
+with the \dscf approximation as for the 0.45 nm coupling case,
 significantly reduces the QP gap and the magnitude of the correction to
 the gap energy for the 0.40 and 0.45 nm cases are similar. For the state
 lifetimes, the HOMO state is approximately the same as for the 0.45 nm
@@ -619,14 +619,14 @@ the CI singles approximation to the $N+1$-electron state becomes
 multi-reference with two CSFs predominately contributing in the expansion.
 One of these CSFs has the additional electron in an electrode orbital,
 whereas the other consists of an additional electron into the molecule's
-LUMO. Hence in $\Delta$SCF approximation to the LUMO, the electrodes and
+LUMO. Hence in \dscf approximation to the LUMO, the electrodes and
 molecule regions are strongly coupled leading to a broad resonance.
 Introducing electron correlations with the MCCI vector obtained from a
 coefficient threshold of 0.003 leads to further anomalous behavior. The
 QP gap is again renormalized by the electron correlations, however in the
 case the HOMO state remains approximately unchanged although there is
 slightly more broadening and a small energy shift. However the character
-of the LUMO state relative to the $\Delta$SCF approximation changes: the
+of the LUMO state relative to the \dscf approximation changes: the
 electron correlations help to decouple the state from the electrodes
 resulting in a single dominant CSF in the CI expansion that describes the
 added electron as a molecule-like state. The energy broadening decreases,
@@ -643,8 +643,39 @@ by approximately 1 eV.
 	\label{fig:cidevregion}
 \end{figure}
 
-{\bf INTRODUCE CURRENT PREDICTIONS FROM TRANSMISSION HERE?}
+Finally, as an illustration of how the changes in transmission curves would
+affect the devices' conductance properties, we calculate the $I-V$ curves
+for the 0.40 nm separated junction in the different levels of theory,
+using the Landauer-B\"uttiker formalism~\cite{buttiker1986}. In the top
+pane of \fref{fig:iv}, we have plotted the results for the \dscf (both
+molecule and device region) and Koopmans transmissions. The wide LUMO
+peak which was noted earlier for the device region case causes an earlier
+onset and higher final value of the current than in the case of the
+molecule. The Koopmans curve has a later onset, due to the higher bandgap,
+but at higher voltages the current exceeds that of the \dscf cases, since
+it contains more than just the HOMO and LUMO levels. The current from
+the Koopmans transmission including only the HOMO and LUMO levels is
+plotted in \fref{fig:iv}. The lower pane shows the current from the two CI
+transmissions. Due to the peaks in both cases being roughly the same
+width, the current reaches similar values for high voltages, but the
+higher position of both `device region' peaks relative to their `molecule'
+counterparts causes a different onset behavior.
 
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.9\linewidth]{figures/iv.eps}
+	\end{center}
+	\caption{Current versus voltage for the different transmission
+	         spectra discussed above, using the Landauer formula.
+		 Note that this is slightly artificial in this case, as
+		 the chain leads have a band gap. The equilibrium Fermi
+		 energy was chosen to lie in the middle of the band gap
+		 of the leads, at $-4.42$ eV, and as voltage is applied
+		 the electrochemical potentials on either side are taken
+		 to move symmetrically.}
+	\label{fig:iv}
+\end{figure}
+ 
 \section{Conclusions}
 \label{sec:conclusions}
 
@@ -671,13 +702,13 @@ structure description of the junction~\cite{golden}.
 The calculations were further divided into two forms: those that did not
 allow electronic excitations from the elecrodes into the CI calculations,
 and those that did. In the case that electrode excitations were excluded
-from the $\Delta$SCF and CI calculations, and for the range of electrode
+from the \dscf and CI calculations, and for the range of electrode
 couplings we considered, it was found that the molecule in the junction
 behaved analogously to a free molecule. The Koopmans approximation
-overestimated the QP energy gap, the $\Delta$SCF approximation underestimated
+overestimated the QP energy gap, the \dscf approximation underestimated
 the gap, and including explicit electron correlations renormalized the
 energy gap with the HOMO and LUMO states being bracketed by the Koopmans
-and $\Delta$SCF estimates. However, these findings are fundamentally
+and \dscf estimates. However, these findings are fundamentally
 altered when electrode excitations are included consistent with the findings
 of~\cite{galperin_nitzan2006leadexcitations}.
 The junction's electronic structure becomes less like that of a free
