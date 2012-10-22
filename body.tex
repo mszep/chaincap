@@ -69,7 +69,7 @@ leads. The explicit left and right leads are each composed of 24 atoms,
 and the central molecular region contains 20 atoms. The width of the gap
 between the leads and molecule determines the strength of the
 molecule-electrode coupling; varying the spacing allows different
-coupling regimes to be investigated. 
+coupling strengths to be investigated. 
 
 The gold atoms are described by a single 6$s$ electron and a 68-electron
 effective core potential~\cite{CRENBS} yielding a single half filled
@@ -161,8 +161,8 @@ from the energy-dependant self-energy is discussed in detail
 in~\cite{henderson}, and we briefly cover the essential points needed
 for the generation of the \ac{CAP} in the following.
 
-\subsection{Derivation of the \ac{CAP}}
-We first consider a system with bare Hamiltonian $\um{H}_0$ in the
+\subsection{Construction of the \ac{CAP}}
+We first consider a system with bare \ac{QP} Hamiltonian $\um{h}_0$ in the
 Hartree-Fock approximation, coupled to two electrodes described by known
 left $\um{\Sigma}_L(\omega)$ and right $\um{\Sigma}_R(\omega)$ self-energies.
 These self-energies are added to the single particle
@@ -170,17 +170,17 @@ Hamiltonian to yield
 \numparts
 \begin{eqnarray}
 \label{eq:capseq}
-        [\um{H}_0 + \lambda \um{\Sigma_L}(\omega_i^\lambda)
+        [\um{h}_0 + \lambda \um{\Sigma_L}(\omega_i^\lambda)
             +\lambda \um{\Sigma_R}(\omega_i^\lambda)] \ket{U_i^\lambda}
         &= \omega_i^\lambda \ket{U_i^\lambda} \\
-        \bra{V_i^\lambda} [\um{H}_0 + \lambda \um{\Sigma_L}(\omega_i^\lambda)
+        \bra{V_i^\lambda} [\um{h}_0 + \lambda \um{\Sigma_L}(\omega_i^\lambda)
             +\lambda \um{\Sigma_R}(\omega_i^\lambda)]
         &= \omega_i^\lambda \bra{V_i^\lambda},
         \label{eq:adiabaticap}
 \end{eqnarray}
 \endnumparts
 where the parameter $\lambda$ is introduced to allow for an adiabatic
-transition between eigenstates $\ket{X_i}$ of $\um{H}_0$ at $\lambda = 0$,
+transition between eigenstates $\ket{X_i}$ of $\um{h}_0$ at $\lambda = 0$,
 and the true, finite-lifetime resonant states of the system at
 $\lambda = 1$. The Hartree-Fock states for the open system are given by
 the complex energies $\omega_i$, right eigenvectors $\ket{U_i}$ and left
@@ -197,11 +197,11 @@ electrode coupling and the imaginary part gives the level broadening.
 
 The goal is to build an energy-independent complex potential
 $\um{W} = \um{W_L} + \um{W_R}$
-such that the Hamiltonian $\um{H}_0 + \um{W}$ has the same eigenvalues
+such that the Hamiltonian $\um{h}_0 + \um{W}$ has the same eigenvalues
 as when calculated using explicit self-energies.
 Such a Hamiltonian is not readily constructed since when we select the
 different $\omega_i$, we are as a consequence selecting different Hamiltonians
-$\um{H}_0 + \um{\Sigma_L}(\omega_i) + \um{\Sigma_R}(\omega_i)$
+$\um{h}_0 + \um{\Sigma_L}(\omega_i) + \um{\Sigma_R}(\omega_i)$
 and the biorthogonality for the left and right eigenvectors does not
 necessarily hold ($\bracket{V_i}{U_j} \ne \delta_{ij}$). We consider instead
 constructions which yield eigenvalues that approximate the $\omega_i$  and
@@ -209,27 +209,27 @@ eigenvectors that approximate the left and right eigenvectors while
 satisifying biorthogonality. Given such a set of approximate eigenvectors
 we write
 \begin{equation}
-    \um{W} = \sum_i  \ket{U^\prime_i} \omega_i \bra{V^\prime_i} - \um{H}_0
+    \um{W} = \sum_i  \ket{U^\prime_i} \omega_i \bra{V^\prime_i} - \um{h}_0
     \label{eq:capsdefUV}
 \end{equation}
 which for biorthogonal $\ket{V^\prime_i}$ and $\bra{U^\prime_i}$ will by
-construction give an operator $\um{H}_0 + \um{W}$ with the correct eigenvalues
+construction give an operator $\um{h}_0 + \um{W}$ with the correct eigenvalues
 and approximate eigenvectors. In practice we work in the (real) eigenbasis
-of $\um{H}_0$ and calculate
+of $\um{h}_0$ and calculate
 \begin{equation}
-    \um{W} = \um{S} \um{X} \boldsymbol{\omega}\um{X}^\dagger - \um{H}_0
+    \um{W} = \um{S} \um{X} \boldsymbol{\omega}\um{X}^\dagger - \um{h}_0
     \label{eq:capsdefX}
 \end{equation}
 in matrix form, where $\um{S}$ is the overlap or metric for the atomic
 orbital basis used to describe the system, $\um{X}$ is the matrix of the
-eigenvectors of the Hamiltonian $\um{H}_0$, and $\boldsymbol{\omega}$ is a
+eigenvectors of the Hamiltonian $\um{h}_0$, and $\boldsymbol{\omega}$ is a
 diagonal matrix with the eigenvalues $\omega_i$ calculated at
 $\lambda = 1$ along the diagonal.
 In practice, since the self-energiy is a property of the electrode only
 (for properly defined electrodes and device regions), the \acp{CAP} are
 generated on a single unit cell of the lead, and then transformed to the
-molecular orbital basis of the device region, which contains a lead unit
-cell on either side.
+molecular orbital basis of the extended device region, which contains a
+single lead unit cell on either side.
 
 \subsection{Verification of the \ac{CAP}}
 A comparison can be performed for this approximation of a \ac{CAP} 
@@ -240,11 +240,11 @@ the device region using the Green's function
 approach. The calculation is then repeated but in the definition of the
 Green's function ${\bf G}$ and spectral densities ${\bf \Lambda}_{L/R}$ the
 self-energy terms are replaced with the \acp{CAP}, $\um{W}_{L/R}$, leading
-to the following expressions ($\um{H}_D$ is the Hamiltonian of the extended
+to the following expressions ($\um{h}_D$ is the Hamiltonian of the extended
 device region):
 \numparts
 \begin{eqnarray}
-	  \um{G}^{-1} = [E\um{S} - (\um{H}_D + \um{W})], \\
+	  \um{G}^{-1} = [\boldsymbol{\omega}\um{S} - (\um{h}_D + \um{W})], \\
 	  \um{\Lambda}_{L/R} = \rmi \left( \um{W}_{L/R} - \um{W}^\dagger_{L/R}
     \right).
   \label{eq:glambdadef}
@@ -305,7 +305,7 @@ spectrum of the device obtained using explicit self-energies and a
 scattering calculation; the results of the comparison are shown in
 fig.~\ref{fig:13evals} for the chain system with molecule-lead separation
 of 0.45 nm (weak coupling case). The Green's function transmission and
-the peaks derived from the complex eigenvalues of $\um{H}_D + \um{W}$
+the peaks derived from the complex eigenvalues of $\um{h}_D + \um{W}$
 (green) agree extremely well, both in terms of the energy of the transmission
 peak (real part) and resonance width (imaginary part).  The inset in
 fig.~\ref{fig:13evals} displays the region around the \ac{HOMO} in
@@ -318,7 +318,7 @@ within an accuracy required for our study.
 		\includegraphics[width=0.9\linewidth]{figures/figure3}
 	\end{center}
 	\caption{Comparison of transmission data obtained using a self-energy
-	(black) with Lorentzian broadened complex eigenvalues of $\um{H}_D + \um{W}$
+	(black) with Lorentzian broadened complex eigenvalues of $\um{h}_D + \um{W}$
 	(red) for a model system as described in~\sref{subsec:modelsystem},
 	with device-lead gap of 0.45 nm.
 	The inset shows a close-up view of the \ac{HOMO}, with the HF \ac{HOMO}
@@ -353,8 +353,8 @@ trial vector for the generation of a new set of randomly generated
 convergence in the energy and CI vector length is reached. This scheme
 makes it possible to gradually increase the amount of correlation that
 the program will find, by gradually decreasing the \ac{CSF} inclusion
-threshold, while keeping the computational intensity at a manageable
-level. Details of the \ac{MCCI} method may be found in 
+threshold, while keeping the computations tractable.
+Details of the \ac{MCCI} method may be found in 
 refs.~\cite{mcci1995,mcci1998,mcci2000,multiref}.
 
 The use of \ac{MCCI} in the present study allows us to follow the
@@ -407,17 +407,17 @@ In this study, the focus is on the electron affinities and ionization
 potentials of the {\it explicit} device region as these can be directly
 related to the quality of an electronic structure description for transport
 calculations~\cite{golden}. For example, the electron affinity is given
-by the difference in energies for the $N$-electron state $E^N$ and the
-$(N+1)$-electron state $E^{N+1}$
+by the difference in complex energies for the $N$-electron state $\Omega^N$
+and the $(N+1)$-electron state $\Omega^{N+1}$
 \numparts
 \begin{equation}
 \label{eq:EA}
-\omega_{\rm EA} = E^{N+1} -E^N,
+\omega_{\rm EA} = \Omega^{N+1} -\Omega^N,
 \end{equation}
 and similarly the ionization potential
 \begin{equation}
 \label{eq:IP}
-\omega_{\rm IP} =  E^N - E^{N-1}
+\omega_{\rm IP} =  \Omega^N - \Omega^{N-1}
 \end{equation}
 \endnumparts
 is the energy difference between the $(N-1)$- and $N$-electron states.
@@ -427,17 +427,17 @@ comparison on the explicit device region between a Koopmans approximation
 orbital relaxations).  For example, in the transmission displayed in
 fig.~\ref{fig:transdat}, the resonances correpsond to the eigenvalues of
 the $N$ particle Fock matrix that are shifted in energy and broadened due
-to the inclusion of the electrode self-energies. Hence the \ac{HOMO} state
+to the presence of the electrode self-energies. Hence the \ac{HOMO} state
 corresponds to the IP for the extended device region but excluding the
 effects of relaxation of the other single electron states that occurs
 when an electron is removed. Likewise the LUMO measures the energy gained
 by attaching an electron onto the device region with all other electrons
 frozen. In this sense, the resonances are identified as Koopmans' IP and
 EA. If the IP and EA are calculated from a many-electron viewpoint and
-with the inclusion of the single excitations into the CI wavefunction,
+including all single excitations into the CI wavefunction,
 all other electrons can relax on the extended device region as the charge
 state is changed. As Thouless' theorem tells us that the CI singles
-energies $E^{N-1}$ and $E^{N+1}$ are approximations to the optimized
+energies $\Omega^{N-1}$ and $\Omega^{N+1}$ are approximations to the optimized
 single determinant energies with orbital relaxations for the device region,
 the EAs and IPs eqs.~\ref{eq:EA} and \ref{eq:IP} correspond to a \dscf
 approximation. 
@@ -471,7 +471,7 @@ and finite lifetime (related to the imaginary part of $\omega_i$) due to
 the opening of the system which we study for \acp{QP} on the
 tunnel junction as electron correlations are introduced.
 
-\subsection{Weak coupling}
+\subsection{Molecular excitations}
 We start our analysis by considering the model with weaker coupling
 defined by a 0.45 nm gap between the electrodes and molecular region,
 and initially only including electronic excitations for orbitals localized
@@ -504,7 +504,7 @@ procedure tends to overestimate and underestimate EAs and IPs, respectively.
 Introducing electron correlations then renormalizes the fundamental gap
 with the correlated energies for the HOMO and LUMO states bracketed by
 the Koopmans and \dscf estimates.
-Hence in the weakly coupled case and including only excitations to and
+Hence in the more weakly coupled case and including only excitations to and
 from molecule-like orbitals, we find that the molecular region behaves
 very much like an isolated molecule, with the additional features of an
 energy shift and a finite state lifetime due to the molecule-electrode
@@ -517,7 +517,6 @@ increased description of electron correlations introduces significant
 energy shifts to the resonance peaks but is found not to substantially
 change the broadening relative to the \dscf resonances.
 
-\subsection{Stronger coupling}
 Next, the effect of stronger coupling is considered by reducing the gap
 between the electrodes and molecular regions to 0.40 nm.
 A similar behaviour is seen as compared to the weaker coupling case. The
@@ -584,7 +583,7 @@ bracketed by the Koopmans and \dscf values.
 	\label{fig:all40Alumo}
 \end{figure}
 
-\subsection{Lead excitations}
+\subsection{Molecular and electrode excitations}
 We now investigate the effect of including excitations from the
 explicit electrode region included within the definition of the extended
 device region. Until this point, we have constrained the CI space to only
@@ -662,17 +661,16 @@ by approximately 1 eV.
 	\label{fig:cidevregion}
 \end{figure}
 
-\subsection{Tunnelling currents}
 Finally, as an illustration of how the changes in transmission curves would
 affect the devices' conductance properties, we calculate the $I-V$ curves
-for the 0.40 nm separated junction in the different approximations,
-using the Landauer formula. In the top
+for the 0.40 nm separated junction in the different approximations from
+the Landauer formula. In the top
 pane of \fref{fig:iv}, we have plotted the results for the \dscf (both
 molecule and device region) and Koopmans transmissions. The wide LUMO
 peak which was noted earlier for the device region case causes an earlier
 onset and higher final value of the current than in the case of the
 molecule. The Koopmans curve (plotted using only the HOMO and LUMO peaks)
-has a later onset, due to the higher bandgap.
+has a later onset, due to the larger bandgap.
 \Fref{fig:iv}(b) shows the current from the two CI
 transmissions. Due to the peaks in both cases being roughly the same
 width, the current reaches similar values for high voltages, but the
@@ -693,8 +691,8 @@ counterparts causes a different onset behavior.
 		 The equilibrium Fermi
 		 energy was chosen to lie in the middle of the band gap
 		 of the leads, at $-4.42$ eV, and the electrochemical
-		 potentials on either side are taken to move in opposite
-		 directions as voltage is applied.}
+		 potentials in the electrodes are taken to move symmetrically
+		 as voltage is applied.}
 	\label{fig:iv}
 \end{figure}
  
