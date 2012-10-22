@@ -95,7 +95,6 @@ construct the Hamiltonian matrix elements for the CI calculations.
 \subsection{Complex Absorbing Potential}
 \label{subsec:CAP}
 
-\subsubsection{Introduction}
 In defining models for atomic-scale transport junctions, a partitioning
 of the system into semi-infinite electrodes and device region is typically
 performed. The device region is given by an explicit model that includes
@@ -110,11 +109,8 @@ where the effect of coupling of lead excitations to a two state model of
 a molecular tunnel junction is explored, and a recent formulation
 of \ac{NEGF} that allows for electrode interactions to be explicitly
 treated~\cite{ness2012jpa_leadnegf}.
-
-With our approach, excitations from the electrode portions that are
-included in the explicit device region can be included provided
-the electronic structure treatment of the device regions allows for
-electron correlations.
+With our approach, excitations from the portions of the electrodes that
+are included in the explicit device region can be included.
 
 In this study, the regions outside of the explicit atomic region are
 described by a \ac{CAP} in analogy to the use of electrode self-energies.
@@ -131,7 +127,7 @@ region to electrodes, and serves as the reference point for discussing
 subsequent calculations performed as we introduce correlations into the
 calculations. 
 
-\subsubsection{Electronic structure}
+\subsection{Electronic structure}
 To treat electron correlations, we apply the method of \ac{CI}. The \ac{CI}
 method is the application of the  Rayleigh-Ritz linear variational
 principle to the calculation of quantum many-electron  energies. Within
@@ -165,7 +161,7 @@ from the energy-dependant self-energy is discussed in detail
 in~\cite{henderson}, and we briefly cover the essential points needed
 for the generation of the \ac{CAP} in the following.
 
-\subsubsection{Derivation of the \ac{CAP}}
+\subsection{Derivation of the \ac{CAP}}
 We first consider a system with bare Hamiltonian $\um{H}_0$ in the
 Hartree-Fock approximation, coupled to two electrodes described by known
 left $\um{\Sigma}_L(\omega)$ and right $\um{\Sigma}_R(\omega)$ self-energies.
@@ -235,7 +231,7 @@ generated on a single unit cell of the lead, and then transformed to the
 molecular orbital basis of the device region, which contains a lead unit
 cell on either side.
 
-\subsubsection{Verification of the \ac{CAP}}
+\subsection{Verification of the \ac{CAP}}
 A comparison can be performed for this approximation of a \ac{CAP} 
 against the energy level shifts and broadening
 obtained from explicit calculations using the self-energy. To accomplish
