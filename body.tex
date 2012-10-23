@@ -496,11 +496,12 @@ states with the HOMO state lifetime becoming 59 fs and the LUMO state
 becoming 17 fs when self-consistency is allowed, indicating an increased
 molecule-electrode coupling. 
 Introducing electron correlations using the molecule-like orbital
-set and a coefficient threshold of 0.003 in the MCCI calculations lowers
-the molecular HOMO and increases the energy of the LUMO. Further increasing
+set and a coefficient threshold of 0.003 in the MCCI calculations shifts
+the molecular HOMO downward and the LUMO upward, increasing the gap
+relative to the \dscf approximation. Further increasing
 the correlation allowed with use of a MCCI coefficient threshold of 0.001,
-but still only using molecule-like excitations, further reduces the energy
-of HOMO resonance and slightly lowers the resonance peak of the LUMO.
+but still only using molecule-like excitations, shifts both peaks back
+slightly in the opposite direction, decreasing the gap.
 These findings for the weakly coupled molecular state are consistent with
 typical findings for molecular systems: the Koopmans EAs and IPs are 
 underestimated and overestimated, respectively, whereas the \dscf
@@ -508,21 +509,43 @@ procedure tends to overestimate and underestimate EAs and IPs, respectively.
 Introducing electron correlations then renormalizes the fundamental gap
 with the correlated energies for the HOMO and LUMO states bracketed by
 the Koopmans and \dscf estimates.
+However, the added correlation is seen not to cause any additional broadening
+beyond that seen in the \dscf approximation.
 Hence in the more weakly coupled case and including only excitations to and
 from molecule-like orbitals, we find that the molecular region behaves
 very much like an isolated molecule, with the additional features of an
 energy shift and a finite state lifetime due to the molecule-electrode
 coupling.
-Introducing self-consistency into the model shifts and significantly
-broadens the resonance peaks as shown in figs.~\ref{fig:all45Ahomo} and
-\ref{fig:all45Alumo}.
-Improving the approximation to the \ac{QP} states by allowing an
-increased description of electron correlations introduces significant
-energy shifts to the resonance peaks but is found not to substantially
-change the broadening relative to the \dscf resonances.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.9\linewidth]{figures/figure4a_4b}
+	\end{center}
+	\caption{(a) HOMO region \ac{QP} peaks of the 0.45 nm separated
+	         system, with excitations restricted to the `molecule' region,
+		 at different approximations: Koopmans (black),
+		 \dscf (red), and MCCI with threshold parameters of
+		 0.003 (blue) and 0.001 (green). (b) Density of states on the
+		 lead.}
+	\label{fig:all45Ahomo}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.9\linewidth]{figures/figure5a_5b}
+	\end{center}
+	\caption{(a) LUMO region \ac{QP} peaks of the 0.45 nm separated
+	         system, with excitations restricted to the `molecule' region,
+		 at different approximations: Koopmans (black),
+		 \dscf (red), and MCCI with threshold parameters of
+		 0.003 (blue) and 0.001 (green). (b) Density of states on the
+		 lead.}
+	\label{fig:all45Alumo}
+\end{figure}
 
 Next, the effect of stronger coupling is considered by reducing the gap
-between the electrodes and molecular regions to 0.40 nm.
+between the electrodes and molecular regions to 0.40 nm (figures
+\ref{fig:all40Ahomo} and \ref{fig:all40Alumo}).
 A similar behaviour is seen as compared to the weaker coupling case. The
 \dscf approximation again shifts the energies of the HOMO and LUMO
 resonances reducing the energy gap, and the state broadening relative to
@@ -537,37 +560,11 @@ bracketed by the Koopmans and \dscf values.
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.9\linewidth]{figures/figure4a_4b}
-	\end{center}
-	\caption{(a) HOMO region \ac{QP} peaks of the 0.45 nm separated
-	         system, with excitations restricted to the `molecule' region,
-		 at different approximations: HF + self-energy (black),
-		 \dscf (red), and MCCI with threshold parameters of
-		 0.003 (blue) and 0.001 (green). (b) Density of states on the
-		 lead.}
-	\label{fig:all45Ahomo}
-\end{figure}
-
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=0.9\linewidth]{figures/figure5a_5b}
-	\end{center}
-	\caption{(a) LUMO region \ac{QP} peaks of the 0.45 nm separated
-	         system, with excitations restricted to the `molecule' region,
-		 at different approximations: HF + self-energy (black),
-		 \dscf (red), and MCCI with threshold parameters of
-		 0.003 (blue) and 0.001 (green). (b) Density of states on the
-		 lead.}
-	\label{fig:all45Alumo}
-\end{figure}
-
-\begin{figure}
-	\begin{center}
 		\includegraphics[width=0.9\linewidth]{figures/figure6a_6b}
 	\end{center}
 	\caption{(a) HOMO region \ac{QP} peaks of the 0.40 nm separated
 	         system, with excitations restricted to the `molecule' region,
-		 at different approximations: HF + self-energy (black),
+		 at different approximations: Koopmans (black),
 		 \dscf (red), and MCCI with threshold parameters of
 		 0.003 (blue) and 0.001 (green). (b) Density of states on the
 		 lead.}
@@ -580,7 +577,7 @@ bracketed by the Koopmans and \dscf values.
 	\end{center}
 	\caption{(a) LUMO region \ac{QP} peaks of the 0.40 nm separated
 	         system, with excitations restricted to the `molecule' region,
-		 at different approximations: HF + self-energy (black),
+		 at different approximations: Koopmans (black),
 		 \dscf (red), and MCCI with threshold parameters of
 		 0.003 (blue) and 0.001 (green). (b) Density of states on the
 		 lead.}
@@ -612,7 +609,7 @@ significant difference in the resonant broadening, the HOMO state lifetime
 decreases from the Koopmans estimate of 223 fs to 18 fs as obtained from
 the \dscf approximation. 
 However, much less resonant broadening is seen in this example for the
-LUMO state, with a lifetime of 85 fs from the HF + self-energy approximation
+LUMO state, with a lifetime of 85 fs from the Koopmans approximation
 and 121 fs from the $\Delta$SF calculation. The results of introducing
 correlation with a MCCI vector generated with a coefficient threshold of
 0.003 is seen in the blue curve of \fref{fig:cidevregion} and again a
@@ -620,7 +617,7 @@ renormalization of the energy gap is seen.
 
 However, as electrode excitations are allowed to couple to the
 molecule-like excitations, the correlated HOMO and LUMO resonance energies
-are no longer bracketed by the HF + self-energy and \dscf peaks.
+are no longer bracketed by the Koopmans and \dscf peaks.
 There is also a difference in the behaviour for the HOMO and LUMO resonances.
 For the HOMO peak, the lifetime stays approximately the same as in the
 \dscf approximation whereas electron correlations broaden the LUMO
