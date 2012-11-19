@@ -30,7 +30,7 @@ Subsequently, similar methods combining a
 treatment of transport in open systems have become commonly
 used~\cite{damle_ghosh_datta}; more
 recently, the {\it GW} approximation~\cite{hedin1965gw} has been used to
-improve  the quaisparticle description of atomic scale tunnel junctions
+improve  the quasiparticle description of atomic scale tunnel junctions
 beyond a Kohn-Sham description~\cite{thygesen_rubio,neaton2007amines}.
 Use of the Kohn-Sham energies in the NEGF formalism implies a single
 determinant or \ac{QP} approximation to the many-electron Green's function,
@@ -208,7 +208,7 @@ and the biorthogonality for the left and right eigenvectors does not
 necessarily hold ($\bracket{V_i}{U_j} \ne \delta_{ij}$). We consider instead
 constructions which yield eigenvalues that approximate the $\omega_i$  and
 eigenvectors that approximate the left and right eigenvectors while
-satisifying biorthogonality. Given such a set of approximate eigenvectors
+satisfying biorthogonality. Given such a set of approximate eigenvectors
 we write
 \begin{equation}
     \um{W} = \sum_i  \ket{U^\prime_i} \omega_i \bra{V^\prime_i} - \um{h}_0
@@ -227,7 +227,7 @@ orbital basis used to describe the system, $\um{X}$ is the matrix of the
 eigenvectors of the Hamiltonian $\um{h}_0$, and $\boldsymbol{\omega}$ is a
 diagonal matrix with the eigenvalues $\omega_i$ calculated at
 $\lambda = 1$ along the diagonal.
-In practice, since the self-energiy is a property of the electrode only
+In practice, since the self-energy is a property of the electrode only
 (for properly defined electrodes and device regions), the \acp{CAP} are
 generated on a single unit cell of the lead, and then transformed to the
 molecular orbital basis of the extended device region, which contains a
@@ -281,12 +281,12 @@ interest which is the focus of our subsequent calculations.
 Having verified that the \acp{CAP} are able to reproduce the electron
 transmission to a good approximation compared to explicit
 electrode self-energies, we next examine whether the transmission resonances
-can be well approximated as Lorenztian resonances. This question is
+can be well approximated as Lorentzian resonances. This question is
 motivated by the fact that in our subsequent many-body treatment,
 \ac{QP} energies will be calculated as differences of complex
 many-electron state energies. If we may approximate the transmission
 resonances as Lorentzian peaks, then the complex \ac{QP} energies 
-can be used to generate Lorentzian transmisson functions for direct
+can be used to generate Lorentzian transmission functions for direct
 comparison to the scattering function transmissions (there is some
 indication of Fano-type resonances indicating that there is a degree of
 coupling between electrodes, but these small effects do not influence
@@ -338,9 +338,9 @@ program~\cite{mcci1995, mcci1998} modified to treat the complex
 symmetric generalized eigenvalue problem that arises when adding the
 \ac{CAP} to the many-electron Coulomb Hamiltonian. The \ac{CAP} is
 introduced as a one-body operator describing the extended device region 
-and its interaction with the elecrodes into the \ac{CI} Hamiltonian. 
+and its interaction with the electrodes into the \ac{CI} Hamiltonian. 
 \ac{MCCI} uses a modified Lanczos method for matrix diagonalization and
-in the complex symetric version of the program, the projection method
+in the complex symmetric version of the program, the projection method
 outlined in~\cite{tarantelli_csd} is introduced to solve the complex
 symmetric generalized eigenvalue problem. 
 
@@ -406,7 +406,7 @@ order in the $c_i^a$.
 
 From a many-electron standpoint, energy differences between many-electron
 states determine \ac{QP} excitations, as well as electron affinities
-and ionization energies, or respectively addition and substraction energies. 
+and ionization energies, or respectively addition and subtraction energies. 
 In this study, the focus is on the electron affinities and ionization
 potentials of the {\it explicit} device region as these can be directly
 related to the quality of an electronic structure description for transport
@@ -429,7 +429,7 @@ The inclusion of the set of singly excited configurations allows a
 comparison on the explicit device region between a Koopmans approximation 
 (no orbital relaxation) and a \dscf approximation (inclusion of
 orbital relaxations).  For example, in the transmission spectra displayed
-in~\fref{fig:transdat}, the resonances correpsond to the eigenvalues of
+in~\fref{fig:transdat}, the resonances correspond to the eigenvalues of
 the $N$ particle Fock matrix that are shifted in energy and broadened due
 to the presence of the electrode self-energies. Hence the \ac{HOMO} state
 corresponds to the \ac{IP} for the extended device region but excluding the
@@ -460,7 +460,7 @@ first set, only excitations to and from the molecular derived states are
 allowed and are retained in the MCCI procedure based upon the value of
 the coefficient threshold. These calculations are labelled as `CI(0.003)
 molecule' and `CI(0.001) molecule'. For the extended device region, a
-single MCCI calculation is performed with a coefficient cut-off of 0.003
+single MCCI calculation is performed with a coefficient cutoff of 0.003
 with excitations to and from all orbitals permitted. This set of calculations
 is labelled `CI(0.003) device region'. 
 
@@ -591,7 +591,7 @@ explicit electrode region included within the definition of the extended
 device region. Until this point, we have constrained the CI space to only
 \acp{CSF} including excitations from and to orbitals localized on the
 molecular region. However, in a previous work it has been shown that the
-coupling of electrode exciations to the molecular excitations can have
+coupling of electrode excitations to the molecular excitations can have
 significant effects on current flow through a correlated two-level model
 system~\cite{galperin_nitzan2006leadexcitations}. 
 
@@ -599,7 +599,7 @@ We start again the more weakly coupled model defined by a 0.45 nm gap
 between the electrodes and the molecular region;
 the results are displayed in \fref{fig:cidevregion}(a). 
 Since self-consistency is introduced by approximating Thouless' theorem
-with all single excitiations on the extended device region, the energy gap
+with all single excitations on the extended device region, the energy gap
 between HOMO and LUMO narrows with respect to the Koopmans values, as
 previously was the case. However, in this case the \dscf results
 in much larger energy shifts with respect to a \dscf approximation
@@ -634,7 +634,7 @@ For the state lifetimes, the HOMO state is approximately the same as for
 the 0.45 nm case, whereas the LUMO state is significantly broader than
 all calculations previously presented with a lifetime of $\approx 2$ fs.
 In this case, the CI singles approximation to the $N+1$-electron state
-becomes multi-reference with two CSFs predominately contributing in the
+becomes multi-reference with two CSFs predominantly contributing in the
 expansion. One of these CSFs has the additional electron in the molecule's
 LUMO, whereas the other consists of an additional electron an electrode
 orbital. Hence in the \dscf approximation to the LUMO, the electrode
@@ -701,7 +701,7 @@ counterparts causes a different onset behavior.
 
 This study has focused on the examination of the electronic structure
 treatment of molecular tunnel junctions, and in particular has studied
-the impact of the electronic structrure treatment on \ac{QP}
+the impact of the electronic structure treatment on \ac{QP}
 energies and lifetimes. A simple model of a tunnel junction was introduced,
 consisting of an atomic gold chain partitioned into left and right
 electrodes, and a central `molecule'. The electrode self-energies were
@@ -720,7 +720,7 @@ related to the ability to predict electronegativity within the electronic
 structure description of the junction~\cite{golden}. 
 
 The calculations were further divided into two forms: those that did not
-allow electronic excitations from the elecrodes into the CI calculations,
+allow electronic excitations from the electrodes into the CI calculations,
 and those that did. In the case that electrode excitations were excluded
 from the \dscf and CI calculations, and for the range of electrode
 couplings we considered, it was found that the molecule in the junction
@@ -734,6 +734,6 @@ of~\cite{galperin_nitzan2006leadexcitations}.
 The junction's electronic structure becomes less like that of a free
 molecule and the QP states and lifetimes are heavily influenced by both
 the amount of correlation and the degree of coupling. Their combined
-effect is diffucult to predict, implying that detailed treatments of the
+effect is difficult to predict, implying that detailed treatments of the
 electronic structure are required to accurately model electronic behaviour
 such as charge transport and photoexcitations in a molecular junction.
