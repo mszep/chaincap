@@ -1,0 +1,52 @@
+AUTHORS:
+Mark Szepieniec
+Irene Yeriskin
+J C Greer
+
+TITLE:
+Quasiparticle energies and lifetimes in a metallic chain model of a tunnel junction
+
+JOURNAL:
+Journal of Chemical Physics
+
+EMAIL ADDRESS OF CORRESPONDING AUTHOR:
+mark.szepieniec@tyndall.ie
+
+
+Dear editors,
+
+please find enclosed our manuscript which we hope you will find fit for
+publication in the "Theoretical Methods and Algorithms" section of the
+Journal of Chemical Physics.
+
+The work represents a novel application of the Configuration Interaction
+formalism to open quantum systems, in this case systems coupled to semi-
+infinite leads. This coupling is achieved by adding to the Hamiltonian
+a Complex Absorbing Potential term, which is carefully tailored to
+reproduce the effect of a (in principle exact, but energy-dependent)
+self-energy.
+
+The advantage of our approach is that we can follow the effect of
+electron correlations on the HOMO and LUMO quasiparticle peaks simply
+by including more configurations in the CI expansions.
+
+The main finding of the work, made significant by the fact that most work
+in molecular electronics assumes the leads to be noninteracting, is that
+inclusion of excitations on the leads causes qualitative changes in the
+positions and widths of the quasiparticle peaks, which in turn affects
+the junction's conductance characteristics.
+
+We feel that Journal of Chemical Physics is the ideal venue for our work,
+since it has previously published both the article initially detailing
+the method of CAP generation (ref. 22 in the text), and more recent work
+by the group of M Ernzerhof, who use a different method also employing
+complex potentials (refs. 17,18) to describe transport through molecules
+using DFT (ref. 19) and through simple model systems using CI (ref. 20).
+
+We look forward to hearing from you at your earliest convenience.
+
+Best regards,
+
+Mark Szepieniec
+Irene Yeriskin
+Jim Greer
